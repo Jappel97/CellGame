@@ -1,0 +1,252 @@
+﻿@*
+    This page displays a scenario for the Professor or Admin to approve. Only active questions and answers are shown.
+*@
+
+@using CellGame.Models
+@{
+    ViewBag.Title = "Preview Scenario";
+}
+
+<h3 class="h3" style="margin-bottom: 20px">
+    Approve Scenario - @Model.scenarioName
+</h3>
+
+
+<div class="row col-sm-12" style="margin-bottom: 20px">
+    <div class="row col-sm-11" id="imageRow">
+        @Model.description
+    </div>
+    <div class="col-md-offset-4">
+        <div class="btn-toolbar" role="toolbar" aria-label="label">
+            <div class="btn-group" role="group" aria-label="label2">
+                <br />
+                @{
+                    if (Model.cellFunction.Length > 0)
+                    {
+                        <button type='button' class='btn btn-primary' onclick="showCellFunctionModal();">Function</button>
+                    }
+                    if (Model.cellShapeAndFeatures.Length > 0)
+                    {
+                        <button type='button' class='btn btn-primary' onclick="showCellShapeAndFeaturesModal();">Shape and Features</button>
+                    }
+                    if (Model.cellLifespan.Length > 0)
+                    {
+                        <button type='button' class='btn btn-primary' onclick="showCellLifespanModal();">Lifespan</button>
+                    }
+                    if (Model.cellNutrition.Length > 0)
+                    {
+                        <button type='button' class='btn btn-primary' onclick="showCellNutritionModal();">Nutrition</button>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("ScenariosToApprove", "Scenarios", new{scenarioID = @Model.scenarioID}, FormMethod.Post))
+{
+    <div class="row">
+        <div class="row col-sm-12" id="selectScenario">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1">Question ID</th>
+                            <th class="col-sm-3">Question / Answer Text</th>
+                            <th class="col-sm-7">Question Description / Next Question</th>
+                            <th class="col-sm-1">Answer Probability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 0;
+                            foreach (KeyValuePair<int, Question> question in Model.questions)
+                            {
+                                if (question.Value.isActive)
+                                {
+                                    <tr class="active">
+                                        <td class="col-sm-1">@Html.DisplayFor(o => question.Value.questionId, new {id = "QuestionId_" + i})</td>
+                                        <td class="col-sm-3">@Html.DisplayFor(o => question.Value.questionTitle, new {id = "QuestionTitle_" + i})</td>
+                                        <td class="col-sm-7">@Html.DisplayFor(o => question.Value.questionDescription, new {id = "QuestionDescription_" + i})</td>
+                                        <th class="col-sm-1"></th>
+                                    </tr>
+                                    foreach (KeyValuePair<int, Answer> answer in question.Value.answerList)
+                                    {
+                                        if (answer.Value.isActive)
+                                        {
+                                            @Html.HiddenFor(o => answer.Value.answerID)
+                                            if (answer.Value.answerForQuestion == question.Value.questionId)
+                                            {
+                                                <tr>
+                                                    <td class="col-sm-1"></td>
+                                                    <td class="col-sm-3">@answer.Value.answerText</td>
+                                                    <td class="col-sm-8" colspan="2">
+                                                        @if (answer.Value.questionReferences.Count == 1)
+                                                        {
+                                                            <table> <tr><td class="col-sm-12">
+                                                                @if (answer.Value.questionReferences[0].questionReference == 0)
+                                                                {
+                                                                    <text>End Scenario</text>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <text>@answer.Value.questionReferences[0].questionReference : @Model.questions[answer.Value.questionReferences[0].questionReference].questionTitle</text>
+                                                                }
+                                                            </td></tr></table>
+                                                        }
+                                                        else
+                                                        {
+                                                            for (int k = 0; k < answer.Value.questionReferences.Count; k++)
+                                                            {
+                                                                <table>
+                                                                    @if (answer.Value.questionReferences[k].questionReference == 0)
+                                                                    {
+                                                                        <tr>
+                                                                            <td class="col-sm-11" colspan="2">End Scenario</td>
+                                                                            <td class="col-sm-1" colspan="2">@answer.Value.questionReferences[k].questionReferenceProbability</td>
+                                                                        </tr>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <tr>
+                                                                            <td class="col-sm-11" colspan="2">@answer.Value.questionReferences[k].questionReference : @Model.questions[answer.Value.questionReferences[k].questionReference].questionTitle</td>
+                                                                            <td class="col-sm-1" colspan="2">@answer.Value.questionReferences[k].questionReferenceProbability%</td>
+                                                                        </tr>
+                                                                    }
+                                                                </table>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                }
+                                i++;
+                            }
+                        }
+                    </tbody>
+                </table>
+                <button class="btn btn-success" type="submit" onclick="waitingDialog.show();">Approve</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="modal fade" id="cellFunctionModal" tabindex="-1" role="dialog" aria-labelledby="cellFunctionModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerModalLabel">Cell Function</h2>
+                <button id="cellFunctionModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @Model.cellFunction
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cellShapeAndFeaturesModal" tabindex="-1" role="dialog" aria-labelledby="cellShapeAndFeaturesModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerModalLabel">Cell Shape And Features</h2>
+                <button id="cellShapeAndFeaturesModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @Model.cellShapeAndFeatures
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cellLifespanModal" tabindex="-1" role="dialog" aria-labelledby="cellLifespanModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerModalLabel">Cell Lifespan</h2>
+                <button id="cellLifespanModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @Model.cellLifespan
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cellNutritionModal" tabindex="-1" role="dialog" aria-labelledby="cellNutritionModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerModalLabel">Cell Nutrition</h2>
+                <button id="cellNutritionModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @Model.cellNutrition
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        function showCellFunctionModal() {
+            $("#cellFunctionModal").modal('show');
+        }
+        function showCellShapeAndFeaturesModal() {
+            $("#cellShapeAndFeaturesModal").modal('show');
+        }
+        function showCellLifespanModal() {
+            $("#cellLifespanModal").modal('show');
+        }
+        function showCellNutritionModal() {
+            $("#cellNutritionModal").modal('show');
+        }
+
+        function showStudentCommentModal(answerID) {
+            $("#selectedAnswer").val(answerID);
+            waitingDialog.hide();
+            $("#answerCommentModal").modal('show');
+
+        }
+    </script>
+}

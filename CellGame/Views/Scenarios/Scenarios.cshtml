@@ -1,0 +1,53 @@
+﻿@*
+    This page shows the list of scenarios that have been approved, are playable, and are active. 
+*@
+
+@using CellGame.Models
+@model CellGame.Models.Scenarios
+@{
+    ViewBag.Title = "Scenarios";
+}
+<h2>Scenarios</h2>
+
+<div class="row">
+    <div class="row" id="selectScenario">
+        <div class="table-responsive">
+            <div class="col-sm-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1"></th>
+                            <th class="col-sm-2">Scenario Name</th>
+                            <th class="col-sm-6">Scenario Description</th>
+                            @if (User.IsInRole("Admin") || User.IsInRole("Professor"))
+                            {
+                                <th class="col-sm-2">Created By</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody id="scenarioBody">
+                        @{
+                            int i = 0;
+                            foreach (Scenario item in @Model.ScenarioList.ToList())
+                            {
+                                if (item.isActive)
+                                {
+                                    <tr>
+                                        <td class="col-sm-1"><button class="btn btn-success" onclick="waitingDialog.show();@("window.location.href='" + @Url.Action("PlayScenario", "PlayScenario", new {scenarioID = @item.scenarioID, nextQuestion = @item.currentQuestion, newGame = true, wasAnswered = false}, null) + "'");">Play</button></td>
+                                        <td class="col-sm-1">@Html.DisplayFor(o => item.scenarioName, new {@id = "ScenarioName_" + i})</td>
+                                        <td class="col-sm-6">@Html.DisplayFor(o => item.description, new {@id = "ScenarioDescription_" + i})</td>
+                                        @if (User.IsInRole("Admin") || User.IsInRole("Professor"))
+                                        {
+                                            <td class="col-sm-2">@Html.DisplayFor(o => item.madeBy, new {@id = "ScenarioCreatedBy_" + i})</td>
+                                        }
+                                    </tr>
+                                    i++;
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@*
+    The page that is used to change a users role
+*@
+@model CellGame.Models.Student
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-bottom: 20px"> Select a new role for @Model.name.</h2>
+@using (Html.BeginForm("Index", "Students", FormMethod.Post))
+{
+    <fieldset class="col-sm-12" style="margin-bottom: 20px">
+        @Html.DropDownListFor(x => x.role, (SelectList)ViewBag.RolesList,  Model.role, new { @class = "form-control col-sm-4" }) 
+        &nbsp;
+        <button class="btn btn-success" onclick="
+
+
+    Dialog.show();">Submit</button>
+    </fieldset>
+}
+<h2>Student</h2>
+<p>The Student role has access to creating scenarios, playing scenarios, and viewing their grades.</p>
+<h2>TA</h2>
+<p>Teacher's Assistants can grade scenarios and view grades for all students.</p>
+<h2>Professor</h2>
+<p>Professors can grade scenarios, view grades for all students. and approve scenarios.</p>
+<h2>Admin</h2> 
+<p>The Admin role has administrative privileges. Admins can access every function this website offers, including editing user roles and approving scenarios.</p>

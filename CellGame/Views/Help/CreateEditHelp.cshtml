@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Help: Create/Edit";
+}
+
+@{ 
+    Html.RenderPartial("_HelpHeader");
+}
+
+<div class="row">
+    <h2>Create/Edit</h2>
+    <p>
+        Use this feature to create or edit your own Cell Game scenarios.
+        Scenarios will be ready to play once your instructor approves it.
+    </p>
+
+    <button class="btn btn-success" onclick="@("window.location.href='" + Url.Action("EditableScenarios", "Scenarios") + "'")">Create/Edit</button>
+
+</div>
+@{Html.RenderPartial("_HelpMenu");}

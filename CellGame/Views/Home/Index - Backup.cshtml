@@ -1,0 +1,48 @@
+﻿@*
+    This is the home page of the site
+*@
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron" style="background-image: url(https://i1.wp.com/spiritegg.com/wp-content/uploads/2017/02/3D-DNA-Wallpaper-7.jpg);">
+    <div align="center">
+       <h2 style="color:white; margin-top: 100px" >Cell Game - CUW Science Department</h2>
+        <p class="lead" style="color:white; margin-top: 40px">This is an interactive game designed to teach you about the cellular life-cycle. In it, you will play through different scenarios designed by your professor.</p>
+        @*<p style="color:white;">
+            In each scenario, you will encounter situations similar to what your cells encounter every day. Your cells have to make decisions about whether to attack 
+            another cell they encounter, divide into two daughter cells, and countless others. You must choose correctly in order to survive. It's not just a matter of
+            life and death for each cell, but also for the entire organism that those cells make up. Test your skills in these scenarios.
+        </p>*@
+        <hr/>
+    </div>
+    <div class="col-md-offset-4">
+        @if (User.IsInRole("Admin") || User.IsInRole("Professor") || User.IsInRole("TA"))
+        {
+            <p><a href="@Url.Action("ScenariosToApprove", "Scenarios")" class="btn btn-primary btn-lg" style="color:white;">Approve a Scenario &raquo;</a></p>
+        }
+        else
+        {
+            <p><a href="@Url.Action("Scenarios", "Scenarios")" class="btn btn-primary btn-lg" style="color:white;">Play a Scenario &raquo;</a></p>
+        }
+    </div>
+</div>
+
+<div class="row">
+    @if (User.IsInRole("Admin") || User.IsInRole("Professor") || User.IsInRole("TA"))
+    {
+        <center>
+            <h2>Grade</h2>
+            <p>Grade scenarios that students have completed</p>
+            <p><a class="btn btn-primary" href="@Url.Action("Index", "GradeScenarios")">Grade a scenario</a></p>
+        </center>
+    }
+    else
+    {
+        <div class="col-md-offset-4">
+            <h2>Grades</h2>
+            <p>See the grades you&#39;ve earned on each scenario.</p>
+            <p><a class="btn btn-primary" href="@Url.Action("Grades", "Grades")">Check out My Grades &raquo;</a></p>
+        </div>
+    }
+</div>

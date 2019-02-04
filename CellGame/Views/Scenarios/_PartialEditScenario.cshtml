@@ -1,0 +1,59 @@
+﻿@*
+    This is a partial view that will pop up on top of the EditableScenarios page. It allows the user to edit the 
+    scenario name and description.
+*@
+
+@using CellGame.Models
+@model Scenario
+@using (Html.BeginForm("UpdateScenario", "Scenarios", FormMethod.Post))
+{
+    <style>
+        .modal .modal-body {
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalLabel">Edit Scenario</h2>
+                <button id="modalCloseButton" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    @Html.HiddenFor(o => o.scenarioID)
+                    <div class="form-group">
+                        <label for="scenarioName" class="form-control">Scenario Name</label>
+                        @Html.TextAreaFor(o => o.scenarioName, new { @class = "form-control", @rows = "1", @maxlength = "100" })
+                    </div>
+                    <div class="form-group">
+                        <label for="scenarioDescription" class="form-control">Scenario Description</label>
+                        @Html.TextAreaFor(o => o.description, new { @class = "form-control", @rows = "5", @maxlength = "1000", @style = "max-width: 100%;" })
+                    </div>
+                    <div class="form-group">
+                        <label for="cellFunction" class="form-control">Cell Function</label>
+                        @Html.TextAreaFor(o => o.cellFunction, new { @class = "form-control", @rows = "5", @maxlength = "1000", @style = "max-width: 100%;" })
+                    </div>
+                    <div class="form-group">
+                        <label for="cellShapeAndFeatures" class="form-control">Cell Shape and Features</label>
+                        @Html.TextAreaFor(o => o.cellShapeAndFeatures, new { @class = "form-control", @rows = "5", @maxlength = "1000", @style = "max-width: 100%;" })
+                    </div>
+                    <div class="form-group">
+                        <label for="cellLifespan" class="form-control">Cell Lifespan</label>
+                        @Html.TextAreaFor(o => o.cellLifespan, new { @class = "form-control", @rows = "5", @maxlength = "1000", @style = "max-width: 100%;" })
+                    </div>
+                    <div class="form-group">
+                        <label for="cellNutrition" class="form-control">Cell Nutrution</label>
+                        @Html.TextAreaFor(o => o.cellNutrition, new { @class = "form-control", @rows = "5", @maxlength = "1000", @style = "max-width: 100%;" })
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button id="scenarioCreateButton" class="btn btn-primary" onclick="waitingDialog.show();">Save</button>
+            </div>
+        </div>
+    </div>
+}

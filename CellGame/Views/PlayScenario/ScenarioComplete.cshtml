@@ -1,0 +1,34 @@
+﻿@* 
+    This page shows once a user completes a scenario and it submits their answers    
+*@
+@using CellGame.Models
+@model Scenario
+@{
+    ViewBag.Title = "Scenario Complete";
+}
+<div class="jumbotron" style="background-image: url(https://i1.wp.com/spiritegg.com/wp-content/uploads/2017/02/3D-DNA-Wallpaper-7.jpg);">
+    <center>
+        <h1 style="margin-top: 70px">You have completed @Html.DisplayFor(o => o.scenarioName)</h1>
+        <p class="lead" style="margin-top: 20px">Thank you for playing and we hope you enjoyed it!</p>
+        <hr />
+        <p><a href="@Url.Action("Scenarios", "Scenarios")" class="btn btn-primary btn-lg" style="color:white;">Play Another Scenario &raquo;</a></p>
+    </center>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Grades</h2>
+        <p>Your Grade for this scenario will appear once it is graded by a professor.</p>
+        <p>See your grades for other scenarios.</p>
+        <p><a class="btn btn-success" href="@Url.Action("Grades", "Grades")">Check out My Grades &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Learn More About Biology</h2>
+        <p>If you&#39;re completely stuck, click here to go back and review the very basics of the sellular life-cycle, cell functions, and all of Biology.</p>
+        <p><a class="btn btn-info" href="https://www.khanacademy.org/science/biology">Learn more at Khan Academy &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Create/Edit a Scenario</h2>
+        <p>Create a scenario for a cell lifecycle like the one you just played.</p>
+        <p><a class="btn btn-danger" href="@Url.Action("EditableScenarios", "Scenarios")">Click Here &raquo;</a></p>
+    </div>
+</div>

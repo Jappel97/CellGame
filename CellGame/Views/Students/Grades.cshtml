@@ -1,0 +1,55 @@
+﻿@*
+    This page is designed for TAs, Professors, and Admin where they want to see a list of a users grades and they have the option to edit it.    
+*@
+@model CellGame.Models.StudentGrades
+@{
+    ViewBag.Title = "Grades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header id="header">
+    <h1 class="h1">Grades for @Model.studentName.</h1>
+</header>
+
+@{
+
+    if (Model.studentGrades.ToList().Count == 0)
+    {
+        <center>
+            <h2>@Model.studentName does not currently currently have any grades to view.</h2>
+        </center>
+    }
+    else
+    {
+        <div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Scenario Title</th>
+                        <th>Score</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 0;
+                        foreach (var item in Model.studentGrades.ToList())
+                        {
+                            <tr>
+                                @if (User.IsInRole("Admin") || User.IsInRole("Professor") || User.IsInRole("TA"))
+                                {
+                                    <td class="col-sm-1"><button class="btn btn-warning" onclick="@("window.location.href='" + Url.Action("EditGrade", "Students", new { @item.stgId, stgScenarioID = @item.scenarioId, stgStudentID = @item.studentId }) + "'");">Edit</button></td>
+                                }
+                                <td class="col-sm-1">@Html.DisplayFor(o => item.scenarioName, new { @id = "GradeScenarioName_" + i })</td>
+                                <td class="col-sm-2">@Html.DisplayFor(o => item.grade, new { @id = "GradeTotal_" + i })</td>
+                                <td class="col-sm-8">@Html.DisplayFor(o => item.gradeComments, new { @id = "GradeComments_" + i })</td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}

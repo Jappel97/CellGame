@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Help: Register";
+}
+
+@{
+    Html.RenderPartial("_HelpHeader");
+}
+
+<div class="row">
+    <h2>Register</h2>
+    <p>
+        Before you can play the Cell Game, you need to create a user account.
+        Provide your student email, a password, and then you can join the Cell Game Adventure!
+        Roles will be determined by the administrator
+    </p>
+    <button class="btn btn-success" onclick="@("window.location.href='" + Url.Action("Register", "Account") + "'")">Register</button>
+
+</div>
+@{Html.RenderPartial("_HelpMenu");}

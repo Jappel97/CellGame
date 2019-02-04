@@ -1,0 +1,74 @@
+﻿@*
+    This is the home page of the site
+*@
+@using CellGame.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login Home";
+}
+
+<div class="jumbotron" style="background-image: url(https://i1.wp.com/spiritegg.com/wp-content/uploads/2017/02/3D-DNA-Wallpaper-7.jpg);">
+    <div align="center">
+        <h2 margin-top: 100px" style="color:white;">Cell Decision Game</h2>
+        <p class="lead" margin-top: 40px" style="color:white;">This is an interactive game designed to teach you about the cell cycle. In it, you will play through different scenarios designed by your professor.</p>
+        @*<p style="color:white;">
+                In each scenario, you will encounter situations similar to what your cells encounter every day. Your cells have to make decisions about whether to attack
+                another cell they encounter, divide into two daughter cells, and countless others. You must choose correctly in order to survive. It's not just a matter of
+                life and death for each cell, but also for the entire organism that those cells make up. Test your skills in these scenarios.
+            </p>*@
+        <hr />
+    </div>
+    <div>
+        <center>
+            <p style="color:white; ">Please Log In</p>
+        </center>
+    </div>
+    <div align="right">
+        <p><font color="white" size="3">CUW Life and Earth Sciences Department</font></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-3">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "emailInput" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-success" />
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink("Register as a new user", "Register", "Account")
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+    $(document).ready(function () {
+            $('#emailInput').focus();
+        });</script>
+}

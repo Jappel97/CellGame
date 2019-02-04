@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #GradBtn{
+        color: white;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 5px;
+        border-color: black;
+        background: radial-gradient(red, white);
+    }
+</style>
+
+<h1>Oops! Something went wrong.</h1> 
+<h1>Please wait a couple minutes before trying to play again!</h1>
+<!--
+<div>@Html.ActionLink("Continue", "Scenarios", "Scenarios", null, new {id="GradBtn" })</div>
+-->
+
+<center>
+    <div><button type="button" class="btn btn-primary" onclick="@("window.location.href='" + @Url.Action("Scenarios", "Scenarios") + "'")">Continue</button></div>
+</center>

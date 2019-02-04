@@ -1,0 +1,276 @@
+﻿@* 
+    This is the page where a user actually plays a scenario
+    The read the question and select an answer 
+*@
+@model CellGame.Models.Scenario
+@{
+    ViewBag.Title = "PlayScenario";
+}
+
+<div class="container" style="margin-top: 40px">
+    <div class="row" id="descriptionRow">
+        <!--description-->
+        @*<div class="row">
+            <h5 class="col-sm-12 text-center">@Html.DisplayFor(o => Model.scenarioName)</h5>
+        </div>
+        <div class="row">
+            <h5 class="col-sm-12 text-center">@Html.DisplayFor(o => Model.description)</h5>     
+        </div>*@
+        <div class="row col-sm-12">
+            <label></label>
+        </div>
+        <div class="row col-sm-12">
+            @if (!String.IsNullOrEmpty(@Model.questions[Model.currentQuestion].questionPicture))
+            {
+                <div class="row col-sm-11" id="imageRow">
+                    <div class="col-sm-offset-4 col-sm-7 pull-right">
+                        <img src="@Model.questions[Model.currentQuestion].questionPicture" class="col-sm-6 text-center" height="250" frameBorder="0" allowFullScreen/>
+                    </div>
+                </div>
+            }
+            <div class="col-md-offset-4">
+                <div class="btn-toolbar" role="toolbar" aria-label="label">
+                    <div class="btn-group" role="group" aria-label="label2">
+                        <br />
+                        @{
+                            if (Model.cellFunction.Length > 0)
+                            {
+                                <button type='button' class='btn btn-primary' onclick="showCellFunctionModal();">Function</button>
+                            }
+                            if (Model.cellShapeAndFeatures.Length > 0)
+                            {
+                                <button type='button' class='btn btn-primary' onclick="showCellShapeAndFeaturesModal();">Shape and Features</button>
+                            }
+                            if (Model.cellLifespan.Length > 0)
+                            {
+                                <button type='button' class='btn btn-primary' onclick="showCellLifespanModal();">Lifespan</button>
+                            }
+                            if (Model.cellNutrition.Length > 0)
+                            {
+                                <button type='button' class='btn btn-primary' onclick="showCellNutritionModal();">Nutrition</button>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h3 class="col-sm-12 text-center">@Html.DisplayFor(o => Model.questions[Model.currentQuestion].questionTitle)</h3>
+        </div>
+        <div class="row">
+            <h5 class="col-sm-12 text-center">@Html.DisplayFor(o => Model.questions[Model.currentQuestion].questionDescription)</h5>
+        </div>
+        <div class="row">
+            <hr/>
+        </div>
+        <div class="row" id="answerRow">
+            <!--answers-->
+            <div class="col-sm-12">
+                @{
+                    int count = 0;
+                    foreach (var answer in Model.questions[Model.currentQuestion].answerList)
+                    {
+                        count++;
+                        if (count % 2 == 1)
+                        {
+                            <div class="col-sm-12">
+                                <label></label>
+                            </div>
+                        }
+                        if (answer.Value.questionReferences.Count > 0 && answer.Value.requiresComment)
+                        {
+                            if (count % 2 == 1 && Model.questions[Model.currentQuestion].answerList.Count == count)
+                            {
+                                <div>
+                                    <button class="btn btn-success col-sm-offset-3 col-sm-5" name="@answer.Key" style="white-space: normal;" onclick="waitingDialog.show(); showStudentCommentModal(@answer.Key);" > <h4>@Html.DisplayFor(o => answer.Value.answerText, new { @id = "Answer_" + answer.Key }) </h4></button>
+                                </div>
+                            }
+                            else
+                            {
+                                <div>
+                                    <button class="btn btn-success col-sm-5" name="@answer.Key" style="white-space: normal;" onclick="waitingDialog.show(); showStudentCommentModal(@answer.Key);" > <h4>@Html.DisplayFor(o => answer.Value.answerText, new { @id = "Answer_" + answer.Key }) </h4></button>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            if (count % 2 == 1 && Model.questions[Model.currentQuestion].answerList.Count == count)
+                            {
+                                <div>
+                                    <button class="btn btn-success col-sm-offset-3 col-sm-5" name="@answer.Key" style="white-space: normal;" onclick="waitingDialog.show(); @("window.location.href='" + @Url.Action("PlayScenario2", "PlayScenario", new { scenarioID = Model.scenarioID, nextQuestion = answer.Value.nextQuestion, selectedAnswer = @answer.Key, newGame = false, wasAnswered = true}, null) + "'");"><h4>@Html.DisplayFor(o => answer.Value.answerText, new { @id = "Answer_" + answer.Key }) </h4></button>
+                                </div>
+                            }
+                            else
+                            {
+                                <div>
+                                    <button class="btn btn-success col-sm-5" name="@answer.Key" style="white-space: normal;" onclick="waitingDialog.show(); @("window.location.href='" + @Url.Action("PlayScenario2", "PlayScenario", new { scenarioID = Model.scenarioID, nextQuestion = answer.Value.nextQuestion, selectedAnswer = @answer.Key, newGame = false, wasAnswered = true}, null) + "'");"><h4>@Html.DisplayFor(o => answer.Value.answerText, new { @id = "Answer_" + answer.Key }) </h4></button>
+                                </div>
+                            }
+                        }
+
+                        <!--for spacing-->
+                        if (count % 2 == 1)
+                        {
+                            <div>
+                                <label class="col-sm-2"/>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="answerCommentModal" tabindex="-1" role="dialog" aria-labelledby="cellFunctionModal" aria-hidden="true">
+    @using (Html.BeginForm("TestScenario", "PlayScenario", FormMethod.Post))
+    {
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerCommentModalLabel">Answer Comment</h2>
+                <button id="cellFunctionModalBut" type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$('#answerComment').val('');">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div>
+                        <label>Why did you choose your answer?</label>
+                    </div>
+                    <div style="display: none">
+                        <textarea class="form-control col-sm-12" id="selectedAnswer" name="selectedAnswer" style="resize: none;"></textarea>
+                    </div>
+                    <div class="row col-sm-12">
+                        <textarea class="form-control col-sm-12" id="answerComment" name="answerComment" rows="5" maxlength="1000" style="max-width: 100%; resize: none;"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#answerComment').val('');">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+}   
+</div>
+
+<div class="modal fade" id="cellFunctionModal" tabindex="-1" role="dialog" aria-labelledby="cellFunctionModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerModalLabel">Cell Function</h2>
+                <button id="cellFunctionModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @Html.DisplayFor(x => x.cellFunction)
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cellShapeAndFeaturesModal" tabindex="-1" role="dialog" aria-labelledby="cellShapeAndFeaturesModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerModalLabel">Cell Shape And Features</h2>
+                <button id="cellShapeAndFeaturesModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @Html.DisplayFor(x => x.cellShapeAndFeatures)
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cellLifespanModal" tabindex="-1" role="dialog" aria-labelledby="cellLifespanModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerModalLabel">Cell Lifespan</h2>
+                <button id="cellLifespanModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @Html.DisplayFor(x => x.cellLifespan)
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cellNutritionModal" tabindex="-1" role="dialog" aria-labelledby="cellNutritionModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerModalLabel">Cell Nutrition</h2>
+                <button id="cellNutritionModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @Html.DisplayFor(x => x.cellNutrition)
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        function showCellFunctionModal() {
+            $("#cellFunctionModal").modal('show');
+        }
+        function showCellShapeAndFeaturesModal() {
+            $("#cellShapeAndFeaturesModal").modal('show');
+        }
+        function showCellLifespanModal() {
+            $("#cellLifespanModal").modal('show');
+        }
+        function showCellNutritionModal() {
+            $("#cellNutritionModal").modal('show');
+        }
+
+        function showStudentCommentModal(answerID) {
+            $("#selectedAnswer").val(answerID);
+            waitingDialog.hide();
+            $("#answerCommentModal").modal('show');
+
+        }
+    </script>
+}

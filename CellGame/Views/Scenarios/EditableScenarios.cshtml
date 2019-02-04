@@ -1,0 +1,193 @@
+﻿@*
+    This page shows a list of scenarios that can be edited by the user. Professors, Admins, and TAs can see who created the scenario.
+*@
+
+@using CellGame.Classes
+@using CellGame.Models
+
+@model Scenarios
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="h3">
+    Edit/Create Scenarios
+</h3>
+
+@if (!String.IsNullOrEmpty(Singleton.warningMsg))
+{
+    // This dismissable dialog will show any warnings that are present when loading the page.
+    <div class="alert alert-warning alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @Singleton.warningMsg
+    </div>
+}
+<div class="row">
+    <button id="createScenarioButton1" type="button" class="btn btn-primary" onclick="showCreateScenarioModal()">Create Scenario</button>
+</div>
+
+<div class="row">
+    <div class="table-responsive">
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="col-sm-1"></th>
+                        <th class="col-sm-1"></th>
+                        <th class="col-sm-1"></th>
+                        <!--<th class="col-sm-1">Scenario #</th>-->
+                        <th class="col-sm-2">Scenario Name</th>
+                        <th class="col-sm-5">Scenario Description</th>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Professor") || User.IsInRole("TA"))
+                        {
+                            <th class="col-sm-3">Created By</th>
+                        }
+                        <th class="col-sm-1"></th>
+                    </tr>
+                </thead>
+                <tbody id="scenarioBody">
+                    @{
+                        int i = 0;
+                        foreach (var item in @Model.ScenarioList.ToList())
+                        {
+                            if (item.isActive)
+                            {
+                    <tr id="tr_@i">
+                        <td class="col-sm-1">
+                            <button class="btn btn-warning" onclick="waitingDialog.show();showEditScenarioModal(@item.scenarioID)">Edit Info</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-success" onclick="waitingDialog.show();@("window.location.href='" + @Url.Action("EditScenarioQuestionsAndAnswers", "Scenarios", new {scenarioId = @item.scenarioID}, null) + "'");">Edit Q&A</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-success" onclick="waitingDialog.show(); @("window.location.href='" + @Url.Action("TestScenario", "PlayScenario", new { scenarioID = @item.scenarioID, nextQuestion = @item.currentQuestion, newGame = true, wasAnswered = false}, null) + "'");">Test</button>
+                        </td>
+                        <!--<td class="col-sm-1">@Html.DisplayFor(o => item.scenarioID, new { id = "ScenarioID_" + i })</td>-->
+                        <td class="col-sm-1">@Html.DisplayFor(o => item.scenarioName, new { id = "ScenarioName_" + i })</td>
+                        <td class="col-sm-5">@Html.DisplayFor(o => item.description, new { id = "ScenarioDescription_" + i })</td>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Professor") || User.IsInRole("TA"))
+                        {
+                            <td class="col-sm-3">@Html.DisplayFor(o => item.madeBy, new { @id = "ScenarioBy_" + i })</td>
+                        }
+
+                        @if (User.IsInRole("Admin") || User.IsInRole("Professor") || User.IsInRole("TA"))
+                        {
+                            <td class="col-sm-1">
+                                <button class="btn btn-danger" onclick="showDeleteScenarioModal(@item.scenarioID)">Delete</button>
+                            </td>
+                        } 
+                        
+                        @if (User.IsInRole("Admin") || User.IsInRole("Professor") || User.IsInRole("TA"))
+                        {
+                            <td>
+                                <button class="btn btn-warning" onclick="@("window.location.href='" + @Url.Action("InactivateScenario", "Scenarios", new { scenarioId = @item.scenarioID }, null) + "'");">Deactivate</button>
+                            </td>
+                        }
+                    </tr>
+                            }
+                            else
+                            {
+                                <tr id="tr_@i">
+                                    <td class="col-sm-1">
+                                        <button class="btn btn-warning" onclick="showEditScenarioModal(@item.scenarioID)">Edit Info</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-success" onclick="waitingDialog.show();@("window.location.href='" + @Url.Action("EditScenarioQuestionsAndAnswers", "Scenarios", new {scenarioId = @item.scenarioID}, null) + "'");">Edit Q&A</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-success" onclick="waitingDialog.show(); @("window.location.href='" + @Url.Action("TestScenario", "PlayScenario", new { scenarioID = @item.scenarioID, nextQuestion = @item.currentQuestion, newGame = true, wasAnswered = false}, null) + "'");">Test</button>
+                                    </td>
+                                    <!--<td class="col-sm-1">@Html.DisplayFor(o => item.scenarioID, new { id = "ScenarioID_" + i })</td>-->
+                                    <td class="col-sm-1">@Html.DisplayFor(o => item.scenarioName, new { id = "ScenarioName_" + i })</td>
+                                    <td class="col-sm-5">@Html.DisplayFor(o => item.description, new { id = "ScenarioDescription_" + i })</td>
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Professor") || User.IsInRole("TA"))
+                                    {
+                                        <td class="col-sm-3">@Html.DisplayFor(o => item.madeBy, new { @id = "ScenarioBy_" + i })</td>
+
+                                        <td class="col-sm-1">
+                                            <button class="btn btn-danger" onclick="showDeleteScenarioModal(@item.scenarioID)">Delete</button>
+                                        </td>
+                                        <td class="col-sm-1">
+                                            <button class="btn btn-warning" onclick="@("window.location.href='" + @Url.Action("ActivateScenario", "Scenarios", new { scenarioId = @item.scenarioID }, null) + "'");">Activate</button>
+                                        </td>
+                                    }
+                                </tr>
+
+                            }
+                            i++;
+                        }
+                        <tr id="tr_@(i+1)"></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <button id="createScenarioButton2" type="button" class="btn btn-primary" onclick="showCreateScenarioModal()">Create Scenario</button>
+</div>
+
+<div class="modal fade" id="createScenarioModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+
+</div>
+
+<div class="modal fade" id="editScenarioModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        function showCreateScenarioModal() {
+            waitingDialog.show();
+
+            $.get("AddScenario").then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#createScenarioModal").html(response);
+                waitingDialog.hide();
+
+                $("#createScenarioModal").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+
+        $("#createScenarioModal").on("shown.bs.modal",
+            function() {
+                $('#scenarioName').focus();
+            });
+
+        function showEditScenarioModal(scenarioId) {
+            waitingDialog.show();
+
+            $.get("EditScenario?scenarioId=" + scenarioId).then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#editScenarioModal").html(response);
+                waitingDialog.hide();
+
+                $("#editScenarioModal").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+
+        function showDeleteScenarioModal(scenarioId) {
+            waitingDialog.show();
+
+            //calling scenarios/confirm ends up calling scenarios(). Act like the controller is called ConfirmDeleteScenario.
+            $.get("ConfirmDeleteScenario?scenarioId=" + scenarioId).then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#editScenarioModal").html(response);
+                waitingDialog.hide();
+                $("#editScenarioModal").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+    </script>
+}

@@ -1,0 +1,914 @@
+12/4/2017 8:28:51 PMERROR: Code: SEN12 Message: Invalid column name 'SA_SCENARIOS_TO_GRADE'.
+Statement(s) could not be prepared.
+12/4/2017 8:28:51 PMERROR: Stack Trace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 747
+12/4/2017 8:28:51 PMERROR: Code: GRASEN03 Message: Invalid column name 'SA_SCENARIOS_TO_GRADE'.
+Statement(s) could not be prepared.
+12/4/2017 8:28:51 PMERROR: Stack Trace:    at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 776
+   at DatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 118
+   at CellGame.Controllers.GradeScenariosController.GradeScenario(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\GradeScenariosController.cs:line 60
+12/4/2017 8:30:18 PMERROR: Code: SEN12 Message: Invalid column name 'SA_SCENARIOS_TO_GRADE'.
+Statement(s) could not be prepared.
+12/4/2017 8:30:18 PMERROR: Stack Trace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 747
+12/4/2017 8:30:18 PMERROR: Code: GRASEN03 Message: Invalid column name 'SA_SCENARIOS_TO_GRADE'.
+Statement(s) could not be prepared.
+12/4/2017 8:30:18 PMERROR: Stack Trace:    at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 776
+   at DatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 118
+   at CellGame.Controllers.GradeScenariosController.GradeScenario(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\GradeScenariosController.cs:line 60
+12/4/2017 8:34:33 PM ERROR: Code: SEN10 Message: The parameterized query '(@studentID nvarchar(128),@scenarioID int,@grade int)INSERT INTO' expects the parameter '@studentID', which was not supplied.
+12/4/2017 8:34:33 PM ERROR: Stack Trace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at CellGame.Classes.ScenarioDatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 637
+12/5/2017 11:30:04 PM ERROR: Code: SEN12 Message: Incorrect syntax near the keyword 'FROM'.
+Statement(s) could not be prepared.
+12/5/2017 11:30:04 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 802
+
+12/5/2017 11:30:04 PM ERROR: Code: GRASEN03 Message: Incorrect syntax near the keyword 'FROM'.
+Statement(s) could not be prepared.
+12/5/2017 11:30:04 PM ERROR: Stack Trace: 
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 838
+   at DatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 118
+   at CellGame.Controllers.GradeScenariosController.GradeScenario(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\GradeScenariosController.cs:line 79
+
+12/5/2017 11:31:34 PM ERROR: Code: SEN12 Message: Invalid column name 'GRADE'.
+Invalid column name 'COMMENTS'.
+Statement(s) could not be prepared.
+12/5/2017 11:31:34 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 802
+
+12/5/2017 11:31:34 PM ERROR: Code: GRASEN03 Message: Invalid column name 'GRADE'.
+Invalid column name 'COMMENTS'.
+Statement(s) could not be prepared.
+12/5/2017 11:31:34 PM ERROR: Stack Trace: 
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 838
+   at DatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 118
+   at CellGame.Controllers.GradeScenariosController.GradeScenario(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\GradeScenariosController.cs:line 79
+
+12/5/2017 11:34:13 PM ERROR: Code: STU02 Message: Invalid column name 'GRADE'.
+Invalid column name 'COMMENTS'.
+Statement(s) could not be prepared.
+12/5/2017 11:34:13 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at CellGame.Classes.StudentDatabaseUtils.getStudentGrades(String studentId, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\StudentDatabaseUtils.cs:line 133
+
+12/5/2017 11:34:13 PM ERROR: Code: STUCON02 Message: Invalid column name 'GRADE'.
+Invalid column name 'COMMENTS'.
+Statement(s) could not be prepared.
+12/5/2017 11:34:13 PM ERROR: Stack Trace: 
+   at CellGame.Classes.StudentDatabaseUtils.getStudentGrades(String studentId, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\StudentDatabaseUtils.cs:line 158
+   at DatabaseUtils.getStudentGrades(String studentId) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 108
+   at CellGame.Controllers.StudentsController.Grades(String id, String name) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\StudentsController.cs:line 46
+
+12/5/2017 11:35:14 PM ERROR: Code: STU02 Message: GRADE
+12/5/2017 11:35:14 PM ERROR: Stack Trace: 
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at CellGame.Classes.StudentDatabaseUtils.getStudentGrades(String studentId, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\StudentDatabaseUtils.cs:line 137
+
+12/5/2017 11:35:14 PM ERROR: Code: STUCON02 Message: GRADE
+12/5/2017 11:35:14 PM ERROR: Stack Trace: 
+   at CellGame.Classes.StudentDatabaseUtils.getStudentGrades(String studentId, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\StudentDatabaseUtils.cs:line 156
+   at DatabaseUtils.getStudentGrades(String studentId) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 108
+   at CellGame.Controllers.StudentsController.Grades(String id, String name) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\StudentsController.cs:line 46
+
+12/5/2017 11:37:33 PM ERROR: Code: SEN12 Message: Invalid column name 'GRADE'.
+Invalid column name 'COMMENTS'.
+Statement(s) could not be prepared.
+12/5/2017 11:37:33 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 802
+
+12/5/2017 11:37:33 PM ERROR: Code: GRASEN03 Message: Invalid column name 'GRADE'.
+Invalid column name 'COMMENTS'.
+Statement(s) could not be prepared.
+12/5/2017 11:37:33 PM ERROR: Stack Trace: 
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 838
+   at DatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 118
+   at CellGame.Controllers.GradeScenariosController.GradeScenario(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\GradeScenariosController.cs:line 79
+
+12/5/2017 11:41:56 PM ERROR: Code: SEN12 Message: Input string was not in a correct format.
+12/5/2017 11:41:56 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 818
+
+12/5/2017 11:41:56 PM ERROR: Code: GRASEN03 Message: Input string was not in a correct format.
+12/5/2017 11:41:56 PM ERROR: Stack Trace: 
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 838
+   at DatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 118
+   at CellGame.Controllers.GradeScenariosController.GradeScenario(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\GradeScenariosController.cs:line 79
+
+12/5/2017 11:42:36 PM ERROR: Code: SEN12 Message: Input string was not in a correct format.
+12/5/2017 11:42:36 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection)
+
+12/5/2017 11:42:36 PM ERROR: Code: GRASEN03 Message: Input string was not in a correct format.
+12/5/2017 11:42:36 PM ERROR: Stack Trace: 
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection)
+   at DatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID)
+   at CellGame.Controllers.GradeScenariosController.GradeScenario(Int32 stgID, Int32 stgScenarioID, String stgStudentID)
+
+12/9/2017 2:14:56 PM ERROR: Code: ANS02 Message: Must declare the scalar variable "@requiresCommentWHERE".
+Statement(s) could not be prepared.
+12/9/2017 2:14:56 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at CellGame.Classes.AnswerDatabaseUtils.editAnswer(Answer answer, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\AnswerDatabaseUtils.cs:line 110
+
+12/9/2017 2:14:56 PM ERROR: Code: SENCON21 Message: Must declare the scalar variable "@requiresCommentWHERE".
+Statement(s) could not be prepared.
+12/9/2017 2:14:56 PM ERROR: Stack Trace: 
+   at CellGame.Classes.AnswerDatabaseUtils.editAnswer(Answer answer, SqlConnection connection) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\AnswerDatabaseUtils.cs:line 117
+   at DatabaseUtils.editAnswer(Answer answer) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 173
+   at ScenariosController.SaveAnswer(String saveMethod) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\ScenariosController.cs:line 660
+
+12/9/2017 2:16:28 PM ERROR: Code: SENCON21 Message: String was not recognized as a valid Boolean.
+12/9/2017 2:16:28 PM ERROR: Stack Trace: 
+   at System.Boolean.Parse(String value)
+   at System.Convert.ToBoolean(String value)
+   at ScenariosController.SaveAnswer(String saveMethod) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\ScenariosController.cs:line 651
+
+12/9/2017 2:21:33 PM ERROR: Code: SENCON21 Message: String was not recognized as a valid Boolean.
+12/9/2017 2:21:33 PM ERROR: Stack Trace: 
+   at System.Boolean.Parse(String value)
+   at System.Convert.ToBoolean(String value)
+   at ScenariosController.SaveAnswer(String saveMethod) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\ScenariosController.cs:line 651
+
+12/9/2017 2:34:47 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/9/2017 2:34:47 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 134
+
+12/9/2017 2:34:47 PM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/9/2017 2:34:47 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 143
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered) in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 35
+
+12/9/2017 2:35:34 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/9/2017 2:35:34 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\f00358098\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 134
+
+12/9/2017 3:03:15 PM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/9/2017 3:03:15 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered)
+
+12/9/2017 3:04:21 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/9/2017 3:04:21 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+
+12/9/2017 3:04:21 PM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/9/2017 3:04:21 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered)
+
+12/9/2017 3:04:56 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/9/2017 3:04:56 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+
+12/9/2017 3:04:56 PM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/9/2017 3:04:56 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered)
+
+12/9/2017 3:05:03 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/9/2017 3:05:03 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+
+12/9/2017 3:05:03 PM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/9/2017 3:05:03 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered)
+
+12/9/2017 3:07:50 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/9/2017 3:07:50 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+
+12/9/2017 3:07:50 PM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/9/2017 3:07:50 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered)
+
+12/9/2017 3:08:22 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/9/2017 3:08:22 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+
+12/9/2017 3:08:22 PM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/9/2017 3:08:22 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered)
+
+12/10/2017 6:57:14 PM ERROR: Code: SEN10 Message: The parameterized query '(@studentID nvarchar(128),@scenarioID int,@grade int)INSERT INTO' expects the parameter '@studentID', which was not supplied.
+12/10/2017 6:57:14 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at CellGame.Classes.ScenarioDatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade, SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 696
+
+12/10/2017 6:57:14 PM ERROR: Code: PLYSENCON03 Message: The parameterized query '(@studentID nvarchar(128),@scenarioID int,@grade int)INSERT INTO' expects the parameter '@studentID', which was not supplied.
+12/10/2017 6:57:14 PM ERROR: Stack Trace: 
+   at CellGame.Classes.ScenarioDatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade, SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 702
+   at DatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 103
+   at DatabaseUtils.submitAnswers() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 87
+   at CellGame.Controllers.PlayScenarioController.ScenarioComplete() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 118
+
+12/10/2017 7:00:37 PM ERROR: Code: SEN10 Message: The parameterized query '(@studentID nvarchar(128),@scenarioID int,@grade int)INSERT INTO' expects the parameter '@studentID', which was not supplied.
+12/10/2017 7:00:37 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at CellGame.Classes.ScenarioDatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade, SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 696
+
+12/10/2017 7:00:37 PM ERROR: Code: PLYSENCON03 Message: The parameterized query '(@studentID nvarchar(128),@scenarioID int,@grade int)INSERT INTO' expects the parameter '@studentID', which was not supplied.
+12/10/2017 7:00:37 PM ERROR: Stack Trace: 
+   at CellGame.Classes.ScenarioDatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade, SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 702
+   at DatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 103
+   at DatabaseUtils.submitAnswers() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 87
+   at CellGame.Controllers.PlayScenarioController.ScenarioComplete() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 118
+
+12/10/2017 7:08:55 PM ERROR: Code: SEN10 Message: The parameterized query '(@studentID nvarchar(128),@scenarioID int,@grade int)INSERT INTO' expects the parameter '@studentID', which was not supplied.
+12/10/2017 7:08:55 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at CellGame.Classes.ScenarioDatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade, SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 696
+
+12/10/2017 7:08:55 PM ERROR: Code: PLYSENCON03 Message: The parameterized query '(@studentID nvarchar(128),@scenarioID int,@grade int)INSERT INTO' expects the parameter '@studentID', which was not supplied.
+12/10/2017 7:08:55 PM ERROR: Stack Trace: 
+   at CellGame.Classes.ScenarioDatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade, SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 702
+   at DatabaseUtils.insertScenarioToGrade(String studentId, Int32 scenarioId, Nullable`1 grade) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 103
+   at DatabaseUtils.submitAnswers() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\DatabaseUtils.cs:line 87
+   at CellGame.Controllers.PlayScenarioController.ScenarioComplete() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 122
+
+<<<<<<< HEAD
+12/10/2017 11:27:20 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:27:20 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 77
+
+12/10/2017 11:32:03 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:32:03 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 77
+
+12/10/2017 11:32:30 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:32:30 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 77
+
+12/10/2017 11:34:07 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:34:07 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 77
+
+12/10/2017 11:35:13 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:35:13 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 77
+
+12/10/2017 11:38:23 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:38:23 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 77
+
+12/10/2017 11:38:25 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:38:25 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 77
+
+12/10/2017 11:38:50 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/10/2017 11:38:50 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 155
+
+12/10/2017 11:38:50 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:38:50 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 167
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 83
+
+12/10/2017 11:43:41 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/10/2017 11:43:41 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 154
+
+12/10/2017 11:43:41 PM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/10/2017 11:43:41 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 166
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 39
+
+12/10/2017 11:43:41 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:43:41 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 52
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 86
+
+12/10/2017 11:45:38 PM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/10/2017 11:45:38 PM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 154
+
+12/10/2017 11:46:21 PM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/10/2017 11:46:21 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList()
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered)
+
+12/10/2017 11:46:21 PM ERROR: Code: PLYSENCON02 Message: The given key was not present in the dictionary.
+12/10/2017 11:46:21 PM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered)
+   at CellGame.Controllers.PlayScenarioController.PlayScenario()
+=======
+10-Dec-17 22:03:11 ERROR: Code: PLYSENCON02 Message: Object reference not set to an instance of an object.
+10-Dec-17 22:03:11 ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.PlayScenario() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 72
+
+10-Dec-17 23:23:47 ERROR: Code: STU02 Message: The parameterized query '(@studentId nvarchar(128))SELECT SCENARIOS_TO_GRADE.STG_ID, SCEN' expects the parameter '@studentId', which was not supplied.
+10-Dec-17 23:23:47 ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at CellGame.Classes.StudentDatabaseUtils.getStudentGrades(String studentId, SqlConnection connection) in C:\Users\timwildauer\Documents\School\Fall 2017\CSC 528\CellGame\CellGame\CellGame\Classes\StudentDatabaseUtils.cs:line 131
+
+10-Dec-17 23:24:03 ERROR: Code: STUCON02 Message: The parameterized query '(@studentId nvarchar(128))SELECT SCENARIOS_TO_GRADE.STG_ID, SCEN' expects the parameter '@studentId', which was not supplied.
+10-Dec-17 23:24:03 ERROR: Stack Trace: 
+   at CellGame.Classes.StudentDatabaseUtils.getStudentGrades(String studentId, SqlConnection connection) in C:\Users\timwildauer\Documents\School\Fall 2017\CSC 528\CellGame\CellGame\CellGame\Classes\StudentDatabaseUtils.cs:line 155
+   at DatabaseUtils.getStudentGrades(String studentId) in C:\Users\timwildauer\Documents\School\Fall 2017\CSC 528\CellGame\CellGame\CellGame\Classes\DatabaseUtils.cs:line 108
+   at CellGame.Controllers.StudentsController.Grades(String id, String name) in C:\Users\timwildauer\Documents\School\Fall 2017\CSC 528\CellGame\CellGame\CellGame\Controllers\StudentsController.cs:line 54
+>>>>>>> d3f02c718867e4e3f52e03044c972eea1cb4a9af
+
+12/13/2017 8:27:32 PM ERROR: Code: USR05 Message: STUDENT_NAME
+12/13/2017 8:27:32 PM ERROR: Stack Trace: 
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at CellGame.Classes.UserDatabaseUtils.getStudentScenariosToEdit(SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 277
+
+12/13/2017 8:27:32 PM ERROR: Code: SENCON02 Message: STUDENT_NAME
+12/13/2017 8:27:32 PM ERROR: Stack Trace: 
+   at CellGame.Classes.UserDatabaseUtils.getStudentScenariosToEdit(SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 295
+   at ScenariosController.EditableScenarios() in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\ScenariosController.cs:line 66
+
+12/13/2017 9:05:14 PM ERROR: Code: SEN12 Message: Invalid attempt to call Read when reader is closed.
+12/13/2017 9:05:14 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 810
+
+12/13/2017 9:05:14 PM ERROR: Code: GRASEN03 Message: Invalid attempt to call Read when reader is closed.
+12/13/2017 9:05:14 PM ERROR: Stack Trace: 
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenarioToGrade(Int32 stgID, Int32 stgScenarioID, String stgStudentID, SqlConnection connection) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 843
+   at CellGame.Controllers.GradeScenariosController.GradeScenario(Int32 stgID, Int32 stgScenarioID, String stgStudentID) in C:\Users\Josh\Dropbox\Cell Game\CellGame\CellGame\Controllers\GradeScenariosController.cs:line 96
+
+12/14/2017 12:31:00 AM ERROR: Code: ANS01 Message: Cannot insert the value NULL into column 'ANSWER_REFERENCES', table 'JTBCellGame.dbo.ANSWERS'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+12/14/2017 12:31:00 AM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at CellGame.Classes.AnswerDatabaseUtils.addAnswer(Answer answer, SqlConnection connection) in C:\Users\csf00460818\Desktop\CellGame\CellGame\Classes\AnswerDatabaseUtils.cs:line 50
+
+12/14/2017 12:31:01 AM ERROR: Code: SENCON21 Message: Cannot insert the value NULL into column 'ANSWER_REFERENCES', table 'JTBCellGame.dbo.ANSWERS'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+12/14/2017 12:31:01 AM ERROR: Stack Trace: 
+   at CellGame.Classes.AnswerDatabaseUtils.addAnswer(Answer answer, SqlConnection connection) in C:\Users\csf00460818\Desktop\CellGame\CellGame\Classes\AnswerDatabaseUtils.cs:line 57
+   at ScenariosController.SaveAnswer(String saveMethod) in C:\Users\csf00460818\Desktop\CellGame\CellGame\Controllers\ScenariosController.cs:line 731
+
+12/14/2017 12:37:17 AM ERROR: Code: QUE02 Message: Operation failed. The index entry of length 905 bytes for the index 'QUESTIONS_4' exceeds the maximum length of 900 bytes.
+12/14/2017 12:37:17 AM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at CellGame.Classes.QuestionDatabaseUtils.addQuestion(Question question, SqlConnection connection) in C:\Users\csf00460818\Desktop\CellGame\CellGame\Classes\QuestionDatabaseUtils.cs:line 103
+
+12/14/2017 12:37:17 AM ERROR: Code: SENCON18 Message: Operation failed. The index entry of length 905 bytes for the index 'QUESTIONS_4' exceeds the maximum length of 900 bytes.
+12/14/2017 12:37:17 AM ERROR: Stack Trace: 
+   at CellGame.Classes.QuestionDatabaseUtils.addQuestion(Question question, SqlConnection connection) in C:\Users\csf00460818\Desktop\CellGame\CellGame\Classes\QuestionDatabaseUtils.cs:line 109
+   at ScenariosController.SaveQuestion() in C:\Users\csf00460818\Desktop\CellGame\CellGame\Controllers\ScenariosController.cs:line 610
+
+12/14/2017 1:08:46 AM ERROR: Code: PLYSENCON04 Message: The given key was not present in the dictionary.
+12/14/2017 1:08:46 AM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\csf00460818\Desktop\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 156
+
+12/14/2017 1:08:46 AM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+12/14/2017 1:08:46 AM ERROR: Stack Trace: 
+   at CellGame.Controllers.PlayScenarioController.addAnswerToList() in C:\Users\csf00460818\Desktop\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 173
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered) in C:\Users\csf00460818\Desktop\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 39
+
+4/17/2018 3:39:21 PM ERROR: Code: PLYSENCON03 Message: Object reference not set to an instance of an object.
+4/17/2018 3:39:21 PM ERROR: Stack Trace: 
+   at DatabaseUtils.submitAnswers() in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\DatabaseUtils.cs:line 87
+   at CellGame.Controllers.PlayScenarioController.ScenarioComplete() in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 145
+
+4/24/2018 4:07:19 PM ERROR: Code: USR02 Message: The parameterized query '(@studentId nvarchar(128),@studentName varchar(40))INSERT INTO S' expects the parameter '@studentId', which was not supplied.
+Statement(s) could not be prepared.
+4/24/2018 4:07:19 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at CellGame.Classes.UserDatabaseUtils.setNewUserName(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 135
+
+4/24/2018 4:07:19 PM ERROR: Code: USR01 Message: The parameterized query '(@studentId nvarchar(128),@studentName varchar(40))INSERT INTO S' expects the parameter '@studentId', which was not supplied.
+Statement(s) could not be prepared.
+4/24/2018 4:07:19 PM ERROR: Stack Trace: 
+   at CellGame.Classes.UserDatabaseUtils.setNewUserName(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 141
+   at CellGame.Classes.UserDatabaseUtils.setUserNameId(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 52
+
+4/24/2018 4:20:12 PM ERROR: Code: USR02 Message: The parameterized query '(@studentId nvarchar(128),@studentName varchar(40))INSERT INTO S' expects the parameter '@studentId', which was not supplied.
+Statement(s) could not be prepared.
+4/24/2018 4:20:12 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at CellGame.Classes.UserDatabaseUtils.setNewUserName(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 135
+
+4/24/2018 4:20:12 PM ERROR: Code: USR01 Message: The parameterized query '(@studentId nvarchar(128),@studentName varchar(40))INSERT INTO S' expects the parameter '@studentId', which was not supplied.
+Statement(s) could not be prepared.
+4/24/2018 4:20:12 PM ERROR: Stack Trace: 
+   at CellGame.Classes.UserDatabaseUtils.setNewUserName(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 141
+   at CellGame.Classes.UserDatabaseUtils.setUserNameId(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 52
+
+4/24/2018 4:34:15 PM ERROR: Code: USR02 Message: Cannot insert the value NULL into column 'STUDENT_ID', table 'JTBCellGame.dbo.STUDENTS'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+4/24/2018 4:34:15 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at CellGame.Classes.UserDatabaseUtils.setNewUserName(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 157
+
+4/24/2018 4:34:15 PM ERROR: Code: USR01 Message: Cannot insert the value NULL into column 'STUDENT_ID', table 'JTBCellGame.dbo.STUDENTS'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+4/24/2018 4:34:15 PM ERROR: Stack Trace: 
+   at CellGame.Classes.UserDatabaseUtils.setNewUserName(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 163
+   at CellGame.Classes.UserDatabaseUtils.setUserNameId(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 52
+
+4/24/2018 4:37:29 PM ERROR: Code: USR02 Message: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_STUDENT_ID". The conflict occurred in database "JTBCellGame", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+4/24/2018 4:37:29 PM ERROR: Stack Trace: 
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at CellGame.Classes.UserDatabaseUtils.setNewUserName(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 157
+
+4/24/2018 4:37:29 PM ERROR: Code: USR01 Message: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_STUDENT_ID". The conflict occurred in database "JTBCellGame", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+4/24/2018 4:37:29 PM ERROR: Stack Trace: 
+   at CellGame.Classes.UserDatabaseUtils.setNewUserName(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 163
+   at CellGame.Classes.UserDatabaseUtils.setUserNameId(String email, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\UserDatabaseUtils.cs:line 52
+
+6/5/2018 2:26:55 PM ERROR: Code: PLYSENCON03 Message: Object reference not set to an instance of an object.
+6/5/2018 2:26:55 PM ERROR: Stack Trace: 
+   at DatabaseUtils.submitAnswers() in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\DatabaseUtils.cs:line 87
+   at CellGame.Controllers.PlayScenarioController.ScenarioComplete() in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 145
+
+6/5/2018 2:27:39 PM ERROR: Code: PLYSENCON03 Message: Object reference not set to an instance of an object.
+6/5/2018 2:27:39 PM ERROR: Stack Trace: 
+   at DatabaseUtils.submitAnswers() in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\DatabaseUtils.cs:line 87
+   at CellGame.Controllers.PlayScenarioController.ScenarioComplete() in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 145
+
+6/6/2018 8:28:55 AM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+6/6/2018 8:28:55 AM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.nextQuestion(Int32 currentAnswer, Int32 currentQuestion) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 226
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 48
+
+6/6/2018 8:31:22 AM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+6/6/2018 8:31:22 AM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.nextQuestion(Int32 currentAnswer, Int32 currentQuestion) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 226
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 48
+
+6/6/2018 8:39:40 AM ERROR: Code: PLYSENCON01 Message: The given key was not present in the dictionary.
+6/6/2018 8:39:40 AM ERROR: Stack Trace: 
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at CellGame.Controllers.PlayScenarioController.nextQuestion(Int32 currentAnswer, Int32 currentQuestion) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 227
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 42
+
+6/6/2018 8:42:51 AM ERROR: Code: PLYSENCON01 Message: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+6/6/2018 8:42:51 AM ERROR: Stack Trace: 
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at CellGame.Controllers.PlayScenarioController.nextQuestion(Int32 currentAnswer, Int32 currentQuestion) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 233
+   at CellGame.Controllers.PlayScenarioController.playScenario(Int32 scenarioID, Int32 nextQuestion, Boolean newGame, Boolean wasAnswered) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Controllers\PlayScenarioController.cs:line 42
+
+6/6/2018 9:47:01 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 9:47:01 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 9:48:50 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 9:48:50 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection)
+
+6/6/2018 9:56:10 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 9:56:10 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 10:22:35 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 10:22:35 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 10:23:41 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 10:23:41 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 10:30:06 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 10:30:06 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 10:32:25 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 10:32:25 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 10:33:04 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 10:33:04 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 10:33:41 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 10:33:41 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 11:13:54 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 11:13:54 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 11:16:24 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 11:16:24 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 11:31:52 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 11:31:52 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 11:47:16 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 11:47:16 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 11:51:55 AM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 11:51:55 AM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/6/2018 2:53:42 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/6/2018 2:53:42 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/12/2018 3:55:35 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/12/2018 3:55:35 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/12/2018 4:23:32 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/12/2018 4:23:32 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/12/2018 4:25:50 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/12/2018 4:25:50 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/12/2018 4:27:54 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/12/2018 4:27:54 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/12/2018 4:28:19 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/12/2018 4:28:19 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/13/2018 1:21:22 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/13/2018 1:21:22 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/13/2018 1:21:28 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/13/2018 1:21:28 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/13/2018 1:27:42 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/13/2018 1:27:42 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/13/2018 1:27:55 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/13/2018 1:27:55 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/13/2018 2:05:05 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/13/2018 2:05:05 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/13/2018 2:05:56 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/13/2018 2:05:56 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/13/2018 2:06:01 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/13/2018 2:06:01 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/14/2018 2:25:42 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/14/2018 2:25:42 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/14/2018 2:25:58 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/14/2018 2:25:58 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/14/2018 2:26:03 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/14/2018 2:26:03 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/14/2018 2:26:08 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/14/2018 2:26:08 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/14/2018 3:16:17 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/14/2018 3:16:17 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/14/2018 3:16:20 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/14/2018 3:16:20 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/14/2018 3:16:27 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/14/2018 3:16:27 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/15/2018 4:33:40 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/15/2018 4:33:40 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+
+6/15/2018 4:33:44 PM ERROR: Code: SEN04 Message: Input string was not in a correct format.
+6/15/2018 4:33:44 PM ERROR: Stack Trace: 
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at CellGame.Classes.ScenarioDatabaseUtils.getScenario(Int32 scenarioId, SqlConnection connection) in C:\CellGame\WorkingDevelopment\Copy2\CellGame\CellGame\Classes\ScenarioDatabaseUtils.cs:line 251
+

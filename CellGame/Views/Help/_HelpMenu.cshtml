@@ -1,0 +1,41 @@
+﻿<center>
+
+    @if (User.IsInRole("Admin") || User.IsInRole("Professor") || User.IsInRole("TA"))
+    {
+        <p></p>
+        <p></p>
+        <p>
+            Need more help? Try these:
+            @Html.ActionLink("Create/Edit", "CreateEditAdmin", "Help") |
+            @Html.ActionLink("Approve", "ApproveAdmin", "Help") |
+            @Html.ActionLink("Grade", "GradeAdmin", "Help") |
+            @Html.ActionLink("Students", "StudentsAdmin", "Help") |
+            @Html.ActionLink("Log In", "LogInAdmin", "Help") |
+            @Html.ActionLink("Register", "RegisterAdmin", "Help")
+        </p>
+
+        <p>
+            @Html.ActionLink("User Roles", "UserRolesAdmin", "Help") |
+            @Html.ActionLink("About", "About", "Help")
+        </p>
+    }
+    else
+    {
+        <p></p>
+        <p></p>
+        <p>
+            Need more help? Try these:
+            @Html.ActionLink("Log In", "LoginHelp", "Help") |
+            @Html.ActionLink("Register", "RegisterHelp", "Help") |
+            @Html.ActionLink("How to Play a Scenario", "HowToPlay", "Help") |
+            @Html.ActionLink("Play", "PlayHelp", "Help") |
+            @Html.ActionLink("Create/Edit", "CreateEditHelp", "Help") |
+            @Html.ActionLink("Grades", "GradesHelp", "Help")
+        </p>
+
+        <p>
+            @Html.ActionLink("Other Questions", "OtherQuestions", "Help") |
+            @Html.ActionLink("About", "About", "Help")
+        </p>
+    }
+</center>

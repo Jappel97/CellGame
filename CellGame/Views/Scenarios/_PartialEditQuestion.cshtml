@@ -1,0 +1,65 @@
+﻿@*
+    This page shows the information about a question and allows the user to edit the info.
+*@
+
+@using CellGame.Models
+@model Question
+@using (Html.BeginForm("SaveQuestion", "Scenarios", FormMethod.Post))
+{
+    <style>
+        .modal .modal-body {
+            overflow-y: auto;
+            max-height: 500px;
+        }
+    </style>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="questionModalLabel">Edit Page</h2>
+                <button id="questionModalCloseButton" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    @Html.HiddenFor(o => Model.questionId)
+                </div>
+                <div class="form-group">
+                    <label for="questionTitle" class="form-control">Page Title</label>
+                    @Html.TextAreaFor(o => Model.questionTitle, new { @class = "form-control", @rows = "2", @maxlength = "140", @style = "max-width: 100%; resize: none;" })
+                </div>
+                <div class="form-group">
+                    <label for="questionDescription" class="form-control">Page Description</label>
+                    @Html.TextAreaFor(o => Model.questionDescription, new { @class = "form-control", @rows = "5", @maxlength = "1000", @style = "max-width: 100%; resize: none;" }) 
+                </div>
+                <div class="form-group">
+                    <label for="questionPicUrl" class="form-control">Picture Url</label>
+                    <input type="text" name="questionPicture" class="form-control" maxlength="500" id="questionPicture" value="@Model.questionPicture"  onchange="textChanged();"/>
+                    <label for="questionPicUrlViewer" class="form-control">Picture Url Preview</label>
+                    <div>
+                        <img id="urlView" src="@Model.questionPicture" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen/>
+                    </div>
+                    <script type="text/javascript">
+                        function textChanged() {
+                            var url = $("#questionPicture").val();
+                            if (url.includes("https://") != true)
+                            {
+                                url = "https://" + url;
+                            }
+                            document.getElementById('urlView').src = url;
+                        }
+                    </script>
+                </div>
+                <div class="form-group">
+                    <label for="isFirstQuestion" class="form-control">First Page</label>
+                    @Html.CheckBoxFor(o => o.isFirstQuestion)
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button id="saveQuestionButton" class="btn btn-primary" onclick="waitingDialog.show();">Save</button>
+            </div>
+        </div>
+    </div>
+}
+

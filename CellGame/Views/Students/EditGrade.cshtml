@@ -1,0 +1,68 @@
+﻿
+@*
+    This page allows TAs, Professors, and Admins to grade a scenario
+*@
+
+@model CellGame.Models.ScenarioToGrade
+@{
+    ViewBag.Title = "GradeScenario";
+}
+@using (Html.BeginForm("Grades", "Students", FormMethod.Post))
+{
+    <h3>Scenario: @Model.stgScenarioName</h3>
+    @Html.HiddenFor(o => o.stgID)
+    <div class="row">
+        <div class="row" id="answers">
+            <div class="table-responsive">
+                <div class="col-sm-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-2">Question Title</th>
+                                <th class="col-sm-4">Question Description</th>
+                                <th class="col-sm-2">Selected Answer</th>
+                                <th class="col-sm-4">Student Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scenarioBody">
+                            @{
+                                int i = 0;
+                                foreach (var item in Model.stgAnswersToGrade)
+                                {
+                                    <tr>
+                                        <td class="col-sm-2">@Html.DisplayFor(o => item.questionTitle, new { @id = "QuestionTitle_" + i })</td>
+                                        <td class="col-sm-4">@Html.DisplayFor(o => item.questionDescription, new { @id = "QuestionText_" + i })</td>
+                                        <td class="col-sm-2">@Html.DisplayFor(o => item.answerText, new { @id = "AnswerText_" + i })</td>
+                                        <td class="col-sm-4">@Html.DisplayFor(o => item.answerComments, new { @id = "StudentComments_" + i })</td>
+                                    </tr>
+                                    i++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <h4>Grade: </h4>
+                    </div>
+                    <div class="row">
+                        <h6 class="col-sm-2 text-center">@Html.TextAreaFor(o => Model.stgGrade, new { @class = "form-control ", @rows = "1", @maxlength = "3", @style = "max-width: 100%; resize: none;" })</h6>
+                        <h4 class="col-sm-1" style="top: 7px">/100</h4>
+                    </div>
+                </div>
+
+                <div class="col-sm-11">
+                    <div class="row">
+                        <h4>Comments: </h4>
+                    </div>
+                    <div class="row">
+                        <h6 class="col-sm-10 text-center">@Html.TextAreaFor(o => Model.stgComments, new { @class = "form-control ", @rows = "5", @maxlength = "1000", @style = "max-width: 100%; resize: none;" })</h6>
+                    </div>
+                </div>
+                <div class="row col-sm-2">
+                    <button class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

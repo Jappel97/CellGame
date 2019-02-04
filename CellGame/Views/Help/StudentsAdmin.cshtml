@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Help: Students";
+}
+
+@{
+    Html.RenderPartial("_HelpHeader");
+}
+
+<div class="row">
+    <h2>About the Cell Game</h2>
+    <p>
+        This feature allows you to view/edit the grades and roles of currently active students, admins, professors and TAs.
+    </p>
+    <hr />
+    <h4>View/Edit Grades</h4>
+    <p>
+        To view/edit grades, find the user and click the Grades button.
+        You can further edit grades by clicking the Edit button.
+        Once the grades has been changed, click the Submit button and the grade will be changed.
+    </p>
+    <h4>Changing Roles</h4>
+    <p>
+        To change the role of a use, click the Change Role button.
+        Click on the dropdown menu and select the new role.
+        Clock the Submit button when you are ready to submit the new role.
+    </p>
+    <button class="btn btn-success" onclick="@("window.location.href='" + Url.Action("Index", "Students") + "'")">Students</button>
+
+</div>
+@{Html.RenderPartial("_HelpMenu");}

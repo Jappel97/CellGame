@@ -1,0 +1,34 @@
+﻿@model CellGame.Models.ScenariosToGradeList
+@{
+    ViewBag.Title = "Pending Grades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pending Grades</h2>
+<div class="col-sm-12">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="col-sm-5">Scenario</th>
+                <th class="col-sm-6">Student</th>
+            </tr>
+        </thead>
+        <tbody id="scenarioBody">
+            @{
+                //show each student scenario that needs to be graded
+                var i = 0;
+                foreach (var item in Model.scenariosToGrade)
+                {
+                    if (item.stgStudentName == User.Identity.Name.Split('@')[0] || item.stgStudentName == User.Identity.Name)
+                    {
+                        <tr>
+                            <td class="col-sm-5">@Html.DisplayFor(o => item.stgScenarioName, new { id = "ScenarioName_" + i })</td>
+                            <td class="col-sm-6">@Html.DisplayFor(o => item.stgStudentName, new { id = "StudentName_" + i })</td>
+                        </tr>
+                        i++;
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,89 @@
+﻿@* 
+    This page shows the list of scenarios that need to be graded. 
+*@
+
+@model CellGame.Models.ScenariosToGradeList
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@{
+
+    if (Model.scenariosToGrade.Count == 0)
+    {
+        <center>
+            <h2>Congratulations! You&#39;re done grading!</h2>
+        </center>
+    }
+    else
+    {
+        <h2>Scenarios that need Grading</h2>
+
+        <div class="row">
+            <div class="row" id="answers">
+                <div class="table-responsive">
+                    <div class="col-sm-12">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th class="col-sm-1"></th>
+                                <th class="col-sm-5">Scenario</th>
+                                <th class="col-sm-6">Student</th>
+                            </tr>
+                            </thead>
+                            <tbody id="scenarioBody">
+                            @{
+                                //show each student scenario that needs to be graded
+                                var i = 0;
+                                foreach (var item in Model.scenariosToGrade)
+                                {
+                                    <tr>
+                                        <td class="col-sm-1">
+                                            <button class="btn btn-success" onclick="waitingDialog.show(); @("window.location.href='" + Url.Action("GradeScenario", "GradeScenarios", new {item.stgID, item.stgScenarioID, item.stgStudentID}) + "'");">Grade</button>
+                                        </td>
+                                        <!--<td>
+                                            <button class="btn btn-danger" onclick="showDeleteGradeModal(@item.stgID)">Delete</button>
+                                        </td>-->
+                                        <td class="col-sm-5">@Html.DisplayFor(o => item.stgScenarioName, new {id = "ScenarioName_" + i})</td>
+                                        <td class="col-sm-6">@Html.DisplayFor(o => item.stgStudentName, new {id = "StudentName_" + i})</td>
+                                    </tr>
+                                    i++;
+                                }
+                            }
+                            </tbody>
+                        </table>
+                        @{
+                            //show this if there are no scenarios that need to be graded
+                            if (Model.scenariosToGrade.Count == 0)
+                            {
+                                <center>
+                                    <h2>Congratulations! You&#39;re done grading!</h2>
+                                </center>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@section scripts
+{
+    <script type="text/javascript">
+        function showDeleteGradeModal(stgID) {
+            waitingDialog.show();
+            $.get("GradeScenarios/ConfirmDeleteGrade?stgID=" + stgID).then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#scenarioToGrade").html(response);
+                waitingDialog.hide();
+                $("#scenarioToGrade").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+    </script>
+}

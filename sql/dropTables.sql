@@ -1,0 +1,8 @@
+﻿--ALTER TABLE QUESTIONS
+--DROP CONSTRAINT FK_SCENARIO_ID;
+
+drop table SCENARIOS;
+drop table QUESTIONS;
+drop table ANSWERS;
+drop table STUDENTS;
+drop table GRADES;

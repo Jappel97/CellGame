@@ -1,0 +1,39 @@
+﻿@* 
+    This page show a list of playable scenarios    
+*@
+@model CellGame.Models.Scenarios
+@{
+    ViewBag.Title = "Scenarios";
+}
+
+<div class="row">
+    <div class="row" id="selectScenario">
+        <div class="table-responsive">
+            <div class="col-sm-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1"></th>
+                            <th class="col-sm-2">Scenario Name</th>
+                            <th class="col-sm-8">Scenario Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scenarioBody">
+                        @{
+                            int i = 0;
+                            foreach (var item in Model.ScenarioList)
+                            {
+                                <tr>
+                                    <td class="col-sm-1"><button class="btn btn-success" onclick="waitingDialog.show(); @("window.location.href='" + @Url.Action("PlayScenario", "PlayScenario", new { scenarioID = @item.scenarioID, nextQuestion = @item.currentQuestion, newGame = true, wasAnswered = false}, null) + "'");">Play</button></td>
+                                    <td class="col-sm-1">@Html.DisplayFor(o => item.scenarioName, new { @id = "ScenarioName_" + i })</td>
+                                    <td class="col-sm-8">@Html.DisplayFor(o => item.description, new { @id = "ScenarioDescription_" + i })</td>
+                                </tr>
+                                i++;
+                            }
+                        }  
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

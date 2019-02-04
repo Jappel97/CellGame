@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Help: Grades";
+}
+
+@{ 
+    Html.RenderPartial("_HelpHeader");
+}
+
+<div class="row">
+    <h2>Grades</h2>
+    <p>
+        View grades on completed scenarios.
+        Your grade for a completed scenario will appear once it is graded by an instructor.
+    </p>
+    <button class="btn btn-success" onclick="@("window.location.href='" + Url.Action("Grades", "Grades") + "'")">Grades</button>
+
+</div>
+@{Html.RenderPartial("_HelpMenu");}

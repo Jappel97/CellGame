@@ -1,0 +1,97 @@
+﻿@*
+    This is a partial view that allows the user to add an answer. The Answer For field is preset for the question that
+    the Add Answer button was selected under.
+*@
+
+@using CellGame.Models
+@model EditScenarioModel
+
+@using (Html.BeginForm("SaveAnswer", "Scenarios", FormMethod.Post))
+{
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="answerModalLabel">New Choice</h2>
+                <button id="answerModalCloseButton" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        @Html.HiddenFor(x => x.newAnswer.answerID)
+                    </div>
+                    <div class="form-group">
+                        <label for="answerQuestionFor" class="form-control">Choice For</label>
+                        @Html.DropDownListFor(x => x.newAnswer.answerForQuestion, Model.QuestionsSelectList, "- please select -", new { @class = "form-control", @style = "max-width: 100%;" })
+                    </div>
+                    <div class="form-group">
+                        <label for="answerDescription" class="form-control">Choice Description</label>
+                        @Html.TextAreaFor(x => x.newAnswer.answerText, new { @id = "answerText", @class = "form-control", @rows = "5", @maxlength = "500", @style = "max-width: 100%;resize: none;" })
+                    </div>
+                    <div class="form-group">
+                        <label for="answerDescription" class="form-control">Choice Requires Student Comment</label>
+                        @Html.CheckBoxFor(x => x.newAnswer.requiresComment)
+                    </div>
+                    <div>
+                        <div id="questionReferences">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1"></th>
+                                        <th class="col-sm-1"></th>
+                                        <th class="col-sm-4">Page Reference</th>
+                                        <th class="col-sm-2">Reference Probability</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < Model.newAnswer.questionReferences.Count; i++)
+                                    {
+                                        <tr>
+                                            <!-- Here I can see that it's getting the right question reference, but when the dropdown list is created, it doesn't select the
+                                            correct question reference -->
+                                            <td class="col-sm-1">
+                                                <button id="answerEditQuestionReferenceButton" class="btn btn-warning" name="saveMethod" value="EditAnswer">Edit</button>
+                                            </td>
+                                            @if (Model.newAnswer.questionReferences.Count > 1)
+                                            {
+                                                <td class="col-sm-1">
+                                                    @Ajax.ActionLink("Delete", "DeleteQuestionReference", new { questionReferenceID = @i, answerID = @Model.newAnswer.answerID }, new AjaxOptions { UpdateTargetId = "questionReferences", InsertionMode = InsertionMode.InsertBefore }, new { @class = "btn btn-danger" })
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td class="col-sm-1"></td>
+                                            }
+                                            <td class="col-sm-4">
+                                                @Model.newAnswer.questionReferences[i].questionReference
+                                                @Html.DisplayFor(x => x.questions[@Model.newAnswer.questionReferences[i].questionReference].questionTitle)
+                                            </td>
+                                            <td class="col-sm-2">
+                                                @Html.DisplayFor(x => x.newAnswer.questionReferences[i].questionReferenceProbability)
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <!-- When they press this button, I want it to call the AddQuestionReference() method in the ScenariosController. It's supposed to add
+                            a new question reference to the list which should automatically display it. I tried putting a script at the bottom here to call that,
+                            but it seems like it needs to be in the full window instead of the partial view. When you click this button, the AddQuestionReference method
+                            does get called, but it doesn't pop up with a new partial. It seems that there's a new partial popping up in the background, but then they both go away.
+                            It came up the right way once, I don't know how to pull the entries out when you click save. -->
+                            <div>
+                                <button id="answerAddQuestionReferenceButton" class="btn btn-success" name="saveMethod" value="AddAnswer" onclick="waitingDialog.show();">Add Page Reference</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button id="answerSaveAnswerButton" class="btn btn-primary" name="saveMethod" value="SaveAnswer" onclick="waitingDialog.show();">Add</button>
+            </div>
+        </div>
+    </div>
+}

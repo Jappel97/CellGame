@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Help: Create/Edit";
+}
+
+@{ 
+    Html.RenderPartial("_HelpHeader");
+}
+<div class="row">
+    <h2>Create/Edit</h2>
+    <p>
+        This freature allows you to create or edit scenarios for the Cell Game
+        Administrators have permissions to delete, activate, or edit any scenario.
+    </p>
+    <hr/>
+    <h4>How to create a scenario:</h4>
+    <p>
+        Click <b>Create Scenario</b> and fill in information in regards to the Scenario Name, Scenario Description, Cell Function, Cell Shape Features, Cell Lifespan, and Cell Nutrition.
+        When you are finished filling out the form, click <b>Save</b> and you can continue editing your new scenario.
+    </p>
+    <h4>Adding a Page:</h4>
+    <p>
+        To add a new page, simply click <b>Add page</b>.
+        From here you will be able to input a page Title, page Description, and a Picture URl.
+        When you are finished, click <b>Add</b> to create the page.
+    </p>
+    <h4>Adding Choices:</h4>
+    <p>
+        To Add an answer to a page, click the <b>Add Choice</b> button located beside the page
+    </p>
+    <p>
+        <b>Answer Requires Student Comment</b> gives you the option to require student to comment why they chose an answer.
+        Check the box underneath to activate this feature or leave it unchecked if you do not need this feature.
+    </p>
+    <p>
+        <b>Add Page Reference</b> allows you to direct the outcome of the answer.
+    </p>
+    <ul>
+        <li>
+            Choose the title of the next page to continue through the scenario creation process.
+        </li>
+        <li>
+            End Scenario can be used in instances when the user got the answer wrong or if the answer they chose is the final outcome.
+        </li>
+        <li>
+            If the answer has multiple outcomes you can change the <b>Reference Probability</b>
+        </li>
+    </ul>
+    <h4>Editing Scenarios:</h4>
+    <p>
+        <b>Edit Info</b> allows you to edit the info for the scenario.
+    </p>
+    <p>
+        <b>Edit Q&amp;A</b> allows you to edit pages and choices for the scenario.
+    </p>
+
+    <button class="btn btn-success" onclick="@("window.location.href='" + Url.Action("EditableScenarios", "Scenarios") + "'")">Create/Edit</button>
+</div>
+@{Html.RenderPartial("_HelpMenu");}

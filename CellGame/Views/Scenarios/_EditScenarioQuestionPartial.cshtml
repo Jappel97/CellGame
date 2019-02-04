@@ -1,0 +1,21 @@
+﻿@*
+    This page shows a scenario and gives options to edit it.
+*@
+@using CellGame.Classes
+@using CellGame.Models
+@model EditScenarioModel
+
+<button data-toggle="collapse" data-target="#@Model.loopCurrQuestion.Value.questionId">@Model.loopCurrQuestion.Value.questionTitle</button>
+<div class="@Model.loopCurrQuestion.Value.questionId">
+    @if(Model.loopCurrQuestion.Value.answerList.Count > 0)
+    {
+    <table>
+        @foreach(KeyValuePair<int, Answer> answer in Model.loopCurrQuestion.Value.answerList)
+        {
+            <tr>
+                <td>@Html.Partial("_EditScenarioAnswerPartial")</td>
+            </tr>
+        }
+    </table>
+    }
+</div>

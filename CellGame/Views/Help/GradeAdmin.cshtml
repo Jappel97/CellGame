@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Help: Grade";
+}
+
+@{
+    Html.RenderPartial("_HelpHeader");
+}
+
+<div class="row">
+    <h2>Grade</h2>
+    <p>
+        This feature allows you to grade students completed&rsquo; scenarios.
+    </p>
+    <hr />
+    <h4>
+        How to grade scenarios:
+    </h4>
+    <ul>
+        <li>
+            Find the student and scenario you want to grade and click <b>Grade</b>.
+            Use the scroll buttons or type in the score out of 100, leave a comment if necessary, and press <b>Submit</b> to enter the grade.
+        </li>
+        <li>
+            Grades and comments will be viewable by student upon submission.
+        </li>
+    </ul>
+    <button class="btn btn-success" onclick="@("window.location.href='" + Url.Action("Index", "GradeScenarios") + "'")">Grade</button>
+
+</div>
+@{Html.RenderPartial("_HelpMenu");}

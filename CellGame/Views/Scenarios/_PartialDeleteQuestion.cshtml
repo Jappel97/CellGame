@@ -1,0 +1,31 @@
+﻿@*
+    This is a partial view that asks the user to confirm deleting a question.
+*@
+
+@using CellGame.Models
+@model Question
+@using (Html.BeginForm("DeleteQuestion", "Scenarios", FormMethod.Post))
+{
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="questionModalLabel">Delete Question</h2>
+                <button id="questionModalCloseButton" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    @Html.HiddenFor(o => o.questionId)
+                    <h2>Are you sure you want to Delete Question:</h2>
+                    @Html.DisplayFor(x => x.questionTitle)
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button id="addQuestionButton" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+}
+

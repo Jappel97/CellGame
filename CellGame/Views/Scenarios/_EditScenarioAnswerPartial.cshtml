@@ -1,0 +1,25 @@
+﻿@*
+    This page shows a scenario and gives options to edit it.
+*@
+@using CellGame.Classes
+@using CellGame.Models
+@model EditScenarioModel
+
+<button data-toggle="collapse" data-target="#@Model.loopCurrAnswer.Value.answerID">@Model.loopCurrAnswer.Value.answerText</button>
+<div class="@Model.loopCurrAnswer.Value.answerID">
+    @if(Model.loopCurrAnswer.Value.questionReferences.Count > 0)
+    {
+        <table>
+            @for (int k = 0; k < Model.loopCurrAnswer.Value.questionReferences.Count; k++)
+            {
+                @{ Model.loopCurrQuestion = Model.questions.ToList()[k]}
+                <tr>
+                    <td>@Html.Partial("_EditScenarioQuestionPartial")</td>
+                    <!--For a question, get Model.questions[Model.currloopanswer.questionreferences[i].questionreference
+                        where i is some number index of the question references array
+                        We need to itterate for every question that the answer refers to.-->
+                </tr>
+            }
+        </table>
+    }
+</div>

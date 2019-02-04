@@ -1,0 +1,6 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    ViewBag.Title = "404";
+}
+<h1 class="text-danger">404 Page Not Found.</h1>
+<button class="btn btn-primary" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");">Go To Home Page</button>

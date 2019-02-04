@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Help: Approve";
+}
+
+@{ 
+    Html.RenderPartial("_HelpHeader");
+}
+
+<div class="row">
+    <h2>Approve</h2>
+    <p>
+        This feature allows you to preview and approve scenarios that have been created by students and other users.
+    </p>
+    <hr/>
+    <h4>How to preview a scenario:</h4>
+    <p>
+        Locate the desired scenario and click <b>Preview</b>.
+    </p>
+    <h4>How to approve a scenario:</h4>
+    <p>
+        Approve a scenario by clicking the <b>Apprrove</b> button located at the bottom of the page.
+        You can further edit the scenario by going to the <b>Create/Edit</b> feature.
+    </p>
+    <button class="btn btn-success" onclick="@("window.location.href='" + Url.Action("ScenariosToApprove", "Scenarios") + "'")">Approve</button>
+
+</div>
+@{Html.RenderPartial("_HelpMenu");}

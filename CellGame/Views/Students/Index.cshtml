@@ -1,0 +1,119 @@
+﻿@*
+    This page lists all of the users and gives options to view a users grades or edit their role    
+*@
+@model CellGame.Models.StudentsList
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Users</h2>
+<h6>Click a heading to organize by that column's contents</h6>
+
+@{
+
+    if (Model.studentsList.ToList().Count == 0)
+    {
+        <center>
+            <h2>Something went seriously wrong and we can't find any users.</h2>
+        </center>
+    }
+    else
+    {
+        <style>
+            th{
+                cursor:pointer;
+            }
+        </style>
+        <div>
+            <table class="table table-hover table-striped" id="rolesTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Name</th>
+                        <th>View Grades</th>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <th onclick="sortTable(2)">Change Role</th>
+                        }
+                        else
+                        {
+                            <th onclick="sortTable(2)">User Role</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 0;
+                        foreach (var item in Model.studentsList.ToList())
+                        {
+                            <tr>
+                                <td class="col-sm-2">@Html.DisplayFor(o => item.name, new { @id = "StudentName_" + i })</td>
+                                <td class="col-sm-2">
+                                    <button class="btn btn-success" onclick="waitingDialog.show(); @("window.location.href='" + Url.Action("Grades", "Students", new {item.id, item.name}) + "'");">Grades</button>
+                                </td>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <td class="col-sm-2">
+                                        @item.role
+                                    </td>
+                                    <td class="col-sm-2">
+                                        <button class="btn btn-success" onclick="waitingDialog.show(); @("window.location.href='" + Url.Action("Role", "Students", new {i}) + "'");">Change Role</button>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="col-sm-2">
+                                        @item.role
+                                    </td>
+                                }
+                            </tr>
+                            i++;
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+
+<script>
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir;
+        var switchcount = 0;
+        table = document.getElementById("rolesTable");
+        switching = true;
+        dir = "asc";
+        while (switching) {
+            switching = false;
+            rows = table.getElementsByTagName("TR");
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                switchcount++;
+            }
+            else {
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+    }
+</script>

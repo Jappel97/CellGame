@@ -1,0 +1,50 @@
+﻿@*
+    This page is show when a user answers a question, so they are required to answer the question
+*@
+@model CellGame.Models.Scenario
+@{
+    ViewBag.Title = "StudentComment";
+}
+
+@using (Html.BeginForm("PlayScenario", "PlayScenario", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row" id="descriptionRow">
+        <!--description-->
+            @*<div class="row">
+                <h3 class="col-sm-12 text-center">@Html.DisplayFor(o => Model.scenarioName)</h3>
+            </div>
+            <div class="row">
+                <h4 class="col-sm-12 text-center">@Html.DisplayFor(o => Model.description)</h4>
+            </div>*@
+            @{
+                if (!String.IsNullOrEmpty(@Model.questions[Model.currentQuestion].questionPicture))
+                {
+                    <div class="row col-sm-12" id="imageRow">
+                        <div class="col-sm-offset-4 col-sm-7 pull-left">
+                            <img src="@Model.questions[Model.currentQuestion].questionPicture" class="col-sm-6 text-center" height="250px" frameBorder="0" allowFullScreen/>
+                        </div>
+                    </div>
+                }
+            }
+            <div class="row">
+                <h3 class="col-sm-12 text-center">@Html.DisplayFor(o => Model.questions[Model.currentQuestion].questionTitle)</h3>
+            </div>
+            <div class="row">
+                <h3 class="col-sm-12 text-center">@Html.DisplayFor(o => Model.questions[Model.currentQuestion].questionDescription)</h3>
+            </div>
+        </div>
+    	<div class="row col-sm-offset-2 col-sm-8">
+            <div class="row">
+                <h3 style="color:black">Why did you choose your answer: </h3>
+                <h3 class="col-sm-12">@Html.DisplayFor(o => Model.questions[Model.currentQuestion].answerList[Model.questions[Model.currentQuestion].selectedAnswer].answerText)</h3>
+            </div>
+            <div class="row col-sm-12">
+                <h3 class="col-sm-12 text-center">@Html.TextAreaFor(o => Model.questions[Model.currentQuestion].answerList[Model.questions[Model.currentQuestion].selectedAnswer].answerComment, new { @class = "form-control col-sm-12", @rows = "5", @maxlength = "1000", @style= "max-width: 100%; resize: none;" })</h3>
+            </div>
+            <div class="row">
+                <input class="btn btn-success" type="submit" value="Submit" onclick="waitingDialog.show();" />
+            </div>
+        </div>
+    </div>
+}

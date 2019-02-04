@@ -1,0 +1,404 @@
+﻿@*
+    This page shows a scenario and gives options to edit it.
+*@
+@using CellGame.Classes
+@using CellGame.Models
+@model EditScenarioModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="h3">
+    Edit Scenario - @Model.ScenarioName
+</h3>
+
+
+@if (!String.IsNullOrEmpty(Singleton.errorMsg))
+{
+    // This dismissable dialog will show any warnings that are present when loading the page.
+    <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @Singleton.errorMsg
+    </div>
+}
+else if (!String.IsNullOrEmpty(Singleton.warningMsg))
+{
+    // This dismissable dialog will show any warnings that are present when loading the page.
+    <div class="alert alert-warning alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @Singleton.warningMsg
+    </div>
+}
+
+<div class="row">
+    <button class="btn btn-success" onclick="waitingDialog.show(); @("window.location.href='" + @Url.Action("EditableScenarios", "Scenarios", new { }, null) + "'");">Save</button>
+    <button id="addQuestionButton1" type="button" class="btn btn-primary" onclick="showAddQuestionModal();">Add Page</button>
+</div>
+
+<div class="row">
+    <div class="table-responsive">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead>
+                    @*
+                        This is the header for the table.
+                    *@
+
+                    <tr>
+                        <th class="col-sm-1"></th>
+                        <th class="col-sm-1"></th>
+                        <th class="col-sm-1">Page Number</th>
+                        <th class="col-sm-2">Text</th>
+                        <th class="col-sm-5">Description / Next Page</th>
+                        <th class="col-sm-1">Choice Probability</th>
+                        <th class="col-sm-1"></th>
+                    </tr>
+                </thead>
+                <tbody id="scenarioBody">
+                    @{
+                        int i = 0;
+                        foreach (KeyValuePair<int, Question> question in Model.questions)
+                        {
+                            if (question.Value.isActive)
+                            {
+                                // If the question is active, show options for editing, deleting, and adding answers for this question.
+                                @Html.HiddenFor(o => question.Value.questionId)
+                                <tr id="tr_@i" class="active">
+
+                                    @{
+                                        if (question.Value.questionId != -1 && question.Value.questionId != 0)
+                                        {
+                                            <td class="col-sm-1"><button class="btn btn-success" onclick="showAddAnswerModal(@question.Value.questionId);">Add Choice</button></td>
+                                            <td class="col-sm-1"><button class="btn btn-warning" onclick="showEditQuestionModal(@question.Value.questionId);">Edit</button></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="col-sm-1"></td>
+                                            <td class="col-sm-1"></td>
+                                        }
+                                    }
+                                    <td class="col-sm-1" name="@question.Value.questionId">@Html.DisplayFor(o => question.Value.questionId, new { id = "QuestionId_" + i })</td>
+                                    <td class="col-sm-2">@Html.DisplayFor(o => question.Value.questionTitle, new { id = "QuestionTitle_" + i })</td>
+                                    <td class="col-sm-5">@Html.DisplayFor(o => question.Value.questionDescription, new { id = "QuestionDescription_" + i })</td>
+                                    <td class="col-sm-1"></td>
+                                    @{
+                                        if (question.Value.questionId != -1 && question.Value.questionId != 0)
+                                        {
+                                            <td class="col-sm-1">
+                                                @*@if () {
+                                                    if (question.Value.isActive == 1)
+                                                    {
+                                                        <button class="btn btn-warning" onclick="callDeactiveFunction">Deactivate</button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button class="btn btn-warning" onclick="callActivateFunction">Activate</button>
+                                                    }
+                                                }*@
+                                                <button class="btn btn-danger" onclick="showDeleteQuestionModal(@question.Value.questionId);">Delete</button>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td class="col-sm-1"></td>
+                                        }
+                                    }
+                                </tr>
+                                        }
+                                        else
+                                        {
+                                            // If the question is inactive, show the same buttons but don't allow any actions. Show a button for reactivating the question.
+                                @Html.HiddenFor(o => question.Value.questionId)
+                                <tr id="tr_@i" class="active">
+
+                                    @{
+                                        if (question.Value.questionId != -1 && question.Value.questionId != 0)
+                                        {
+                                            <td class="col-sm-1"><button class="btn btn-secondary">Add Choice</button></td>
+                                            <td class="col-sm-1"><button class="btn btn-secondary" onclick="showEditQuestionModal(@question.Value.questionId);">Edit</button></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="col-sm-1"></td>
+                                            <td class="col-sm-1"></td>
+                                        }
+                                    }
+                                    <td class="col-sm-1"><div id="@question.Value.questionId">@Html.DisplayFor(o => question.Value.questionId, new { id = "QuestionId_" + i })</div></td>
+                                    <td class="col-sm-2">@Html.DisplayFor(o => question.Value.questionTitle, new { id = "QuestionTitle_" + i })</td>
+                                    <td class="col-sm-5">@Html.DisplayFor(o => question.Value.questionDescription, new { id = "QuestionDescription_" + i })</td>
+                                    <td class="col-sm-1"></td>
+                                    @{
+                                        if (question.Value.questionId != -1 && question.Value.questionId != 0)
+                                        {
+                                            <td class="col-sm-1">
+                                                @*@if () {
+                                                    if (question.Value.isActive == 1)
+                                                    {
+                                                        <button class="btn btn-warning" onclick="callDeactiveFunction">Deactivate</button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button class="btn btn-warning" onclick="callActivateFunction">Activate</button>
+                                                    }
+                                                }*@
+                                                <button class="btn btn-warning" onclick="@("window.location.href='" + @Url.Action("ActivateQuestion", "Scenarios", new { questionId = question.Value.questionId }, null) + "'");">Activate</button>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td class="col-sm-1"></td>
+                                        }
+                                    }
+                                </tr>
+                                        }
+                                        foreach (KeyValuePair<int, Answer> answer in question.Value.answerList)
+                                        {
+                                    @Html.HiddenFor(o => answer.Value.answerID)
+                                            if (answer.Value.answerForQuestion == question.Value.questionId)
+                                            {
+                                                if (answer.Value.isActive)
+                                                {
+                                                    // For each answer in the question, display the answer and all questions referenced along with the odds of that question being selected.
+                                            <tr>
+                                                <td class="col-sm-1"></td>
+                                                <td class="col-sm-1"><button type="submit" class="btn btn-warning editAnswer" onclick="showEditAnswerModal(@answer.Value.answerID);">Edit</button></td>
+                                                <td class="col-sm-1"></td>
+                                                <td class="col-sm-3">@answer.Value.answerText</td>
+                                                <td class="col-sm-6" colspan="2">
+                                                    @if (answer.Value.questionReferences.Count == 1)
+                                                    {
+                                                        <table> <tr><td class="col-sm-12">
+                                                            @if (answer.Value.questionReferences[0].questionReference == 0)
+                                                            {
+                                                                <text>End Scenario</text>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="#@Model.questions[answer.Value.questionReferences[0].questionReference].questionId">@answer.Value.questionReferences[0].questionReference : @Model.questions[answer.Value.questionReferences[0].questionReference].questionTitle</a>
+                                                            }
+                                                        </td></tr></table>
+                                                    }
+                                                    else
+                                                    {
+                                                        for (int k = 0; k < answer.Value.questionReferences.Count; k++)
+                                                        {
+                                                            <table>
+                                                                @if (answer.Value.questionReferences[k].questionReference == 0)
+                                                                {
+                                                                    <tr>
+                                                                        <td class="col-sm-11" colspan="2">End Scenario</td>
+                                                                        <td class="col-sm-1" colspan="2">@answer.Value.questionReferences[k].questionReferenceProbability&#37</td>
+                                                                    </tr>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <tr>
+                                                                        <td class="col-sm-11" colspan="2"><a href="#@Model.questions[answer.Value.questionReferences[k].questionReference].questionId">@answer.Value.questionReferences[k].questionReference : @Model.questions[answer.Value.questionReferences[k].questionReference].questionTitle</a></td>
+                                                                        <td class="col-sm-1" colspan="2">@answer.Value.questionReferences[k].questionReferenceProbability&#37</td>
+                                                                    </tr>
+                                                                }
+                                                            </table>
+                                                        }
+                                                    }
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    <button type="submit" class="btn btn-danger" onclick="showDeleteAnswerModal(@answer.Value.answerID);">Delete</button>
+                                                </td>
+                                            </tr>
+                                                }
+                                                else
+                                                {
+                                                    // If the answer is inactive, the edit button is gray and an option is presented to reactivate the answer.
+                                            <tr>
+                                                <td class="col-sm-1"></td>
+                                                <td class="col-sm-1"><button type="submit" class="btn btn-secondary editAnswer" onclick="showEditAnswerModal(@answer.Value.answerID);">Edit</button></td>
+                                                <td class="col-sm-1"></td>
+                                                <td class="col-sm-3">@answer.Value.answerText</td>
+                                                <td class="col-sm-6" colspan="2">
+                                                    @if (answer.Value.questionReferences.Count == 1)
+                                                    {
+                                                        <table> <tr><td class="col-sm-12">
+                                                            @if (answer.Value.questionReferences[0].questionReference == 0)
+                                                            {
+                                                                <text>End Scenario</text>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="#@Model.questions[answer.Value.questionReferences[0].questionReference].questionId">@answer.Value.questionReferences[0].questionReference : @Model.questions[answer.Value.questionReferences[0].questionReference].questionTitle</a>
+                                                            }
+                                                        </td></tr></table>
+                                                    }
+                                                    else
+                                                    {
+                                                        for (int k = 0; k < answer.Value.questionReferences.Count; k++)
+                                                        {
+                                                            <table>
+                                                                @if (answer.Value.questionReferences[k].questionReference == 0)
+                                                                {
+                                                                    <tr>
+                                                                        <td class="col-sm-11" colspan="2">End Scenario</td>
+                                                                        <td class="col-sm-1" colspan="2">@answer.Value.questionReferences[k].questionReferenceProbability&#37</td>
+                                                                    </tr>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <tr>
+                                                                        <td class="col-sm-11" colspan="2"><a href="#@Model.questions[answer.Value.questionReferences[k].questionReference].questionId">@answer.Value.questionReferences[k].questionReference : @Model.questions[answer.Value.questionReferences[k].questionReference].questionTitle</a></td>
+                                                                        <td class="col-sm-1" colspan="2">@answer.Value.questionReferences[k].questionReferenceProbability&#37</td>
+                                                                    </tr>
+                                                                }
+                                                            </table>
+                                                        }
+                                                    }
+                                                </td>
+                                                <td class="col-sm-1">
+                                                    <button class="btn btn-warning" onclick="waitingDialog.show(); @("window.location.href='" + @Url.Action("ActivateAnswer", "Scenarios", new { answerId = answer.Value.answerID }, null) + "'");">Activate</button>
+                                                </td>
+                                            </tr>
+                                                    }
+                                                }
+                                            }
+                                            i++;
+                                        }
+                        <tr id="qtr_@(i + 1)"></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button data-toggle="collapse" data-target="#demo">Page</button>
+    <div id="demo" class="collapse">
+        <table>
+            <tbody>
+                @{Model.loopCurrQuestion = Model.questions.Where}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <button class="btn btn-success" onclick="waitingDialog.show(); @("window.location.href='" + @Url.Action("EditableScenarios", "Scenarios", new { }, null) + "'");">Save</button>
+    <button id="addQuestionButton2" type="button" class="btn btn-primary" onclick="showAddQuestionModal();">Add Question</button>
+</div>
+
+<div class="modal fade" id="addQuestionModal" tabindex="-1" role="dialog" aria-labelledby="addQuestionModal" aria-hidden="true"></div>
+
+<div class="modal fade" id="editQuestionModal" tabindex="-1" role="dialog" aria-labelledby="editQuestionModal" aria-hidden="true"></div>
+
+<div class="modal fade" id="deleteQuestionModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true"></div>
+
+<div class="modal fade" id="addAnswerModal" tabindex="-1" role="dialog" aria-labelledby="addAnswerModal" aria-hidden="true"></div>
+
+<div class="modal fade" id="editAnswerModal" tabindex="-1" role="dialog" aria-labelledby="editAnswerModal" aria-hidden="true"></div>
+
+<div class="modal fade" id="deleteAnswerModal" tabindex="-1" role="dialog" aria-labelledby="deleteAnswerModal" aria-hidden="true"></div>
+
+@section scripts
+{
+    @*// These are the javascript functions for showing modals for editing,*@
+    <script type="text/javascript">
+        function showEditQuestionModal(id) {
+            waitingDialog.show();
+
+            $.get("EditQuestion?questionId=" + id).then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#editQuestionModal").html(response);
+                waitingDialog.hide();
+
+                $("#editQuestionModal").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+
+        function showAddQuestionModal() {
+            waitingDialog.show();
+
+            $.get("AddQuestion").then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#addQuestionModal").html(response);
+                waitingDialog.hide();
+
+                $("#addQuestionModal").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+
+        $("#addQuestionModal").on("shown.bs.modal",
+            function () {
+                $('#questionTitle').focus();
+            });
+
+        function showDeleteQuestionModal(id) {
+            waitingDialog.show();
+
+            $.get("ConfirmDeleteQuestion?questionId=" + id).then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#deleteQuestionModal").html(response);
+                waitingDialog.hide();
+
+                $("#deleteQuestionModal").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+
+        function showEditAnswerModal(id) {
+            waitingDialog.show();
+
+            $.get("EditAnswer?answerID=" + id).then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#editAnswerModal").html(response);
+                waitingDialog.hide();
+
+                $("#editAnswerModal").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+
+        function showAddAnswerModal(id) {
+            waitingDialog.show();
+
+            $.get("AddAnswer?id=" + id).then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#addAnswerModal").html(response);
+                waitingDialog.hide();
+
+                $("#addAnswerModal").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+
+        function showDeleteAnswerModal(id) {
+            waitingDialog.show();
+
+            $.get("ConfirmDeleteAnswer?answerID=" + id).then(function (response) {
+                // response will be the HTML of the partial view.
+                $("#deleteAnswerModal").html(response);
+                waitingDialog.hide();
+
+                $("#deleteAnswerModal").modal('show');
+            }, function (response) {
+                //this should execute if the get fails
+                alert("Could not load page");
+                waitingDialog.hide();
+            });
+        }
+    </script>
+}

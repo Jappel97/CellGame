@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Help: Play";
+}
+
+@{ 
+    Html.RenderPartial("_HelpHeader");
+}
+
+<div class="row">
+    <h2>Play</h2>
+    <p>
+        This tab will take you to the Scenario selection screen
+    </p>
+    <button class="btn btn-success" onclick="@("window.location.href='" + Url.Action("Scenarios", "Scenarios") + "'")">Play</button>
+
+</div>
+@{Html.RenderPartial("_HelpMenu");}

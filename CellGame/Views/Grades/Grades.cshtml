@@ -1,0 +1,53 @@
+﻿@*
+    This page show each of the users completed scenarios and the grades they got for each.
+*@
+@model CellGame.Models.StudentGrades
+@{
+    ViewBag.Title = "Grades";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header id="header">
+    <h1 class="h1">Welcome @Model.studentName !</h1>
+</header>
+@{
+
+    if (Model.studentGrades.ToList().Count == 0)
+    {
+        <center>
+            <h2>You do not currently have grades to view.</h2>
+        </center>
+    }
+    else
+    {
+
+        <div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th class="col-sm-2">Scenario Title</th>
+                        <th class="col-sm-2">Score</th>
+                        <th class="col-sm-8">Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 0;
+                        foreach (var item in Model.studentGrades.ToList())
+                        {
+                            <tr>
+                                <td class="col-sm-2">@Html.DisplayFor(o => item.scenarioName, new { @id = "GradeScenarioName_" + i })</td>
+                                <td class="col-sm-2">@Html.DisplayFor(o => item.grade, new { @id = "GradeTotal_" + i })</td>
+                                <td class="col-sm-8">@Html.DisplayFor(o => item.gradeComments, new { @id = "GradeComments_" + i })</td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    }
+    <div>
+        <button class="btn btn-success" onclick="@("window.location.href='" + Url.Action("PendingGrades", "Grades") + "'")">View Pending Grades</button>
+    </div>
+}

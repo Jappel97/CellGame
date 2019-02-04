@@ -1,0 +1,9 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An Error has occured due to a System Issue. Please email with this error code <b>ERROR CODE: @CellGame.Classes.Singleton.errorCode</b> to your professor to help improve this application</h2>
+<button class="btn-default" onclick="@("window.location.href='" + @Url.Action("PlayScenario", "PlayScenario") + "'");">Go To Home Page</button>
